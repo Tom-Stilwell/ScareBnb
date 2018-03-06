@@ -1,51 +1,4 @@
-/* {
-  "name": "Scarebnb",
-  "private": true,
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "lodash": "^4.17.5",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "webpack": "3.11.0"
-  },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {
-    "webpack-cli": "^2.0.9"
-  },
-  "scripts": {
-    "webpack": "webpack --watch",
-    "postinstall": "webpack",
-    "start": "node ./frontend/scarebnb.jsx"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tom-Stilwell/Scarebnb.git"
-  },
-  "engines": {
-    "node": "^6.10.1",
-    "npm": "^3.10.10"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tom-Stilwell/Scarebnb/issues"
-  },
-  "homepage": "https://github.com/Tom-Stilwell/Scarebnb#readme"
-} */
+
 
 {
   "name": "ScareBnb",
@@ -73,7 +26,7 @@
     "webpack": "webpack --watch"
     },
     "engines": {
-        "node": "9.4.0",
-        "npm": "5.7.1"
+        "node": "6.10.1",
+        "npm": "3.10.10"
     }
 }
