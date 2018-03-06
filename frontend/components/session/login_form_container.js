@@ -1,4 +1,4 @@
-import { login } from '../actions/session_actions';
+import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 
