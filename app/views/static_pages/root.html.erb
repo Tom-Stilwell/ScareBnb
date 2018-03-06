@@ -1,10 +1,14 @@
-<script type="text/javascript">
-  <% if logged_in? %>
-    window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
-      user: current_user
-    ).html_safe %>
-  <% end %>
+<% if logged_in? %>
+  <script>
+   window.currentUser = {
+     id: <%= current_user.id %>,
+     username: "<%= current_user.username %>"
+   }
+  </script>
+<% end %>
+
+<script>
+ window.blue = "<%= asset_path('blue.jpg')%>"
 </script>
 
 <main id="root"></main>

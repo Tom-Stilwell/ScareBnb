@@ -11,6 +11,7 @@ const App = () => (
   <div>
     <header>
       <h1>Bench BnB</h1>
+      <img src={window.blue} />
     </header>
 
     <Switch>
