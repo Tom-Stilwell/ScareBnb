@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <main>
     <header>
-      <h1>Bench BnB</h1>
+      <h1>Scare BnB</h1>
     </header>
 
     <Switch>
