@@ -26,9 +26,9 @@
     "webpack-cli": "^2.0.9"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "node ./frontend/scarebnb.jsx"
   },
   "repository": {
     "type": "git",
