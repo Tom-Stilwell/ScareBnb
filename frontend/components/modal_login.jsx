@@ -10,7 +10,19 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    overflow              : 'visible',
+
+  },
+
+  overlay: {
+    position: 'fixed',
+    top: '0px',
+    left: '0px',
+    right: '0px',
+    bottom: '0px',
+    backgroundColor: "rgba(102, 102, 0, 0.75)",
+    "z-index": "999"
   }
 };
 
@@ -42,9 +54,10 @@ class ModalSignUp extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.openModal}>Log In</button>
+      <div className="login-div">
+        <button type="button" onClick={this.openModal} className="session-button">Log In</button>
         <Modal
+          ariaHideApp={false}
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}

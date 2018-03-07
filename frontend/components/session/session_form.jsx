@@ -40,16 +40,9 @@ class SessionForm extends React.Component {
 
 
   render() {
-    let otherButton = null;
-    if (this.props.formType === 'Sign Up'){
-        otherButton = <Link to='/login'> Log In </Link>;
-      } else {
-        otherButton = <Link to='/signup'> Sign Up </Link>;
-      }
 
     return (
       <div>
-        { otherButton }
         <form onSubmit={ this.handleSubmit }>
           <label> Username
             <input type='text' value={this.state.username} onChange={this.handleUsername}></input>

@@ -12,6 +12,7 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /\.(png|jpg)$/, loader: 'url-loader' },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
