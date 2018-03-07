@@ -28,7 +28,7 @@ class NavBar extends React.Component {
         </div>
 
         {this.props.currentUser ? (
-          <ProtectedRightNavBar />
+          <ProtectedRightNavBar showDropdown={this.props.showDropdown} />
         ) : (
           <AuthRightNavBar showModal={this.props.showModal} />
         )}

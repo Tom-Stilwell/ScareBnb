@@ -307,15 +307,24 @@ button.session-button:focus {
   background-color: lightgrey;
 }
 
-.dropdown {
-  display: inline-block;
+/* DROPDOWNS */
+
+.dropdown-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
 }
 
-.dropdown__content {
-  display: none;
+.dropdown-child {
   position: absolute;
-}
-
-.dropdown--active .dropdown__content {
-  display: block;
+  right: 200px;
+  max-height: 100%;
+  background-color: white;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

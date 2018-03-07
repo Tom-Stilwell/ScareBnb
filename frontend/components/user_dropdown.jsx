@@ -1,33 +1,24 @@
 import React from "react";
-import Dropdown from "react-simple-dropdown";
-
-var DropdownTrigger = Dropdown.DropdownTrigger;
-var DropdownContent = Dropdown.DropdownContent;
+import { connect } from "react-redux";
 
 const UserDropdown = props => {
-  debugger;
   return (
-    <Dropdown>
-      <DropdownTrigger>
-        <button type="button" className="session-button">
-          User
-        </button>
-      </DropdownTrigger>
-      <DropdownContent>
-        <ul>
-          <li>
-            <a href="/profile">Profile</a>
-          </li>
-          <li>
-            <a href="/favorites">Favorites</a>
-          </li>
-          <li>
-            <a href="/logout">Log Out</a>
-          </li>
-        </ul>
-      </DropdownContent>
-    </Dropdown>
+    <ul className="user-dropdown-list">
+      <li className="user-dropdown-button">Edit Profile</li>
+      <li className="user-dropdown-button">Travel Credit</li>
+      <li className="user-dropdown-button">Account Settings</li>
+      <li className="user-dropdown-button">My GuideBook</li>
+      <li className="user-dropdown-button">Gift Cards</li>
+      <li className="user-dropdown-button">Scarebnb for Work</li>
+      <li className="user-dropdown-button" onClick={props.logout}>
+        Log Out
+      </li>
+    </ul>
   );
 };
 
-export default UserDropdown;
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout())
+});
+
+export default connect(null, mapDispatchToProps)(UserDropdown);
