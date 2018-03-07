@@ -1,14 +1,17 @@
 import React from 'react';
 import LoginContainer from './session/login_form_container';
 import SignupContainer from './session/signup_form_container';
+import NavBar from './navbar';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <main>
+    <NavBar />
     <header>
       <h1>Scare BnB</h1>
     </header>
+
 
     <Switch>
       <AuthRoute path="/login" component={LoginContainer} />

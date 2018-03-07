@@ -26,6 +26,8 @@ class SessionForm extends React.Component {
       password: ''
     });
 
+    this.props.closeModal();
+
   }
 
   handlePassword(e) {
@@ -39,11 +41,12 @@ class SessionForm extends React.Component {
 
   render() {
     let otherButton = null;
-    if (this.props.formType === 'signup'){
+    if (this.props.formType === 'Sign Up'){
         otherButton = <Link to='/login'> Log In </Link>;
       } else {
         otherButton = <Link to='/signup'> Sign Up </Link>;
       }
+
     return (
       <div>
         { otherButton }
@@ -54,7 +57,7 @@ class SessionForm extends React.Component {
           <label> Password
             <input type='password' value={this.state.password} onChange={this.handlePassword}></input>
           </label>
-          <button>Submit</button>
+          <button>{this.props.formType}</button>
         </form>
       </div>
     );

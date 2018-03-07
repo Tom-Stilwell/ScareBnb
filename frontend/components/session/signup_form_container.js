@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   });
   return ({
     errors: errs,
-    formType: 'signup'
+    formType: 'Sign Up'
   });
 };
 
