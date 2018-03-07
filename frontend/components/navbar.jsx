@@ -1,13 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import ModalSignUp from './modal_signup';
-import ModalLogIn from './modal_login';
+import Modal from "./modal";
 import ghost from "../../app/assets/images/ghost.png";
 
 // console.log(ghost);
 
-const NavBar = (props) => {
-  return (
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(field) {
+    return () => {
+      this.props.showModal(field);
+    };
+  }
+
+  render() {
+
+    return (
     <div className="navbar">
       <div className="logo">
         <a href="/#/" ><img src={ghost} alt={"ghost"} height="40px" width="40px"/></a>
@@ -15,12 +26,13 @@ const NavBar = (props) => {
 
       <div className="right-navbar">
         <ul className="right-navbar-list">
-          <li><ModalSignUp /></li>
-          <li><ModalLogIn /></li>
+          <button type="button" onClick={this.handleClick("signup")} className="session-button">Sign Up</button>
+          <button type="button" onClick={this.handleClick("login")} className="session-button">Log In</button>
         </ul>
       </div>
     </div>
   );
-};
+  }
+}
 
 export default NavBar;

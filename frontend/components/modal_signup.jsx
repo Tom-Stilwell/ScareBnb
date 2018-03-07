@@ -2,29 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import SignUpForm from './session/signup_form_container';
+import * as modalStyles from './modalStyles';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    overflow              : 'visible',
-
-  },
-
-  overlay: {
-    position: 'fixed',
-    top: '0px',
-    left: '0px',
-    right: '0px',
-    bottom: '0px',
-    backgroundColor: "rgba(0, 0, 0, 0.75)",
-    zIndex: "999"
-  }
-};
 
 class ModalSignUp extends React.Component {
   constructor() {
@@ -61,7 +40,7 @@ class ModalSignUp extends React.Component {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          style={modalStyles}
           contentLabel="Example Modal"
         >
 
