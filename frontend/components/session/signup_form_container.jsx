@@ -1,8 +1,8 @@
 import React from "react";
-import { login } from "../../actions/session_actions";
+import { signup } from "../../actions/session_actions";
 import SessionForm from "./session_form";
 import { connect } from "react-redux";
-import { showModal, hideModal } from "../../actions/modal_actions";
+import { hideModal, showModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const errs = [];
@@ -11,15 +11,18 @@ const mapStateToProps = (state, ownProps) => {
   });
   return {
     errors: errs,
-    formType: "Log In"
+    formType: "Sign Up"
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  processForm: user => dispatch(login(user)),
+  processForm: user => dispatch(signup(user)),
   otherForm: (
-    <span class="other-form-link" onClick={() => dispatch(showModal("signup"))}>
-      Sign Up
+    <span
+      className="other-form-link"
+      onClick={() => dispatch(showModal("login"))}
+    >
+      Log In
     </span>
   ),
   hideModal: () => dispatch(hideModal())

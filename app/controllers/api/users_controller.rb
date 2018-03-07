@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      render json: {id: @user.id, username: @user.username}
+      render json: {id: @user.id, email: @user.email}
     else
       render json: {errors: @user.errors.full_messages}, status: 422
     end
@@ -22,6 +22,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:username, :password_digest, :session_token, :password)
+    params.require(:user).permit(:email, :password, :birthday, :fname, :lname)
   end
 end

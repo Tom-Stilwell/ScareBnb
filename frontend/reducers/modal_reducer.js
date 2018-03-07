@@ -1,5 +1,5 @@
-import { merge } from 'lodash';
-import { HIDE_MODAL, SHOW_MODAL } from '../actions/modal_actions';
+import { merge } from "lodash";
+import { HIDE_MODAL, SHOW_MODAL } from "../actions/modal_actions";
 
 const modalReducer = (oldState = null, action) => {
   Object.freeze(oldState);
@@ -13,6 +13,5 @@ const modalReducer = (oldState = null, action) => {
       return oldState;
   }
 };
-
 
 export default modalReducer;

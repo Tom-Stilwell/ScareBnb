@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 import Modal from "./modal";
 import ghost from "../../app/assets/images/ghost.png";
+import AuthRightNavBar from "./auth_right_navbar";
+import ProtectedRightNavBar from "./protected_right_navbar";
 
 // console.log(ghost);
 
@@ -17,21 +19,21 @@ class NavBar extends React.Component {
   }
 
   render() {
-
     return (
-    <div className="navbar">
-      <div className="logo">
-        <a href="/#/" ><img src={ghost} alt={"ghost"} height="40px" width="40px"/></a>
-      </div>
+      <div className="navbar">
+        <div className="logo">
+          <a href="/#/">
+            <img src={ghost} alt={"ghost"} height="40px" width="40px" />
+          </a>
+        </div>
 
-      <div className="right-navbar">
-        <ul className="right-navbar-list">
-          <button type="button" onClick={this.handleClick("signup")} className="session-button">Sign Up</button>
-          <button type="button" onClick={this.handleClick("login")} className="session-button">Log In</button>
-        </ul>
+        {this.props.currentUser ? (
+          <ProtectedRightNavBar />
+        ) : (
+          <AuthRightNavBar showModal={this.props.showModal} />
+        )}
       </div>
-    </div>
-  );
+    );
   }
 }
 

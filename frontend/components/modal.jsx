@@ -1,19 +1,19 @@
-import React from 'react';
-import { hideModal } from '../actions/modal_actions';
-import { connect } from 'react-redux';
-import LoginFormContainer from './session/login_form_container.jsx';
-import SignupFormContainer from './session/signup_form_container';
+import React from "react";
+import { hideModal } from "../actions/modal_actions";
+import { connect } from "react-redux";
+import LoginFormContainer from "./session/login_form_container.jsx";
+import SignupFormContainer from "./session/signup_form_container.jsx";
 
-function Modal({modal, hideModal}) {
+function Modal({ modal, hideModal }) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
-    case 'login':
+    case "login":
       component = <LoginFormContainer />;
       break;
-    case 'signup':
+    case "signup":
       component = <SignupFormContainer />;
       break;
     default:
@@ -22,7 +22,7 @@ function Modal({modal, hideModal}) {
   return (
     <div className="modal-background" onClick={hideModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+        {component}
       </div>
     </div>
   );
