@@ -21,8 +21,8 @@ const customStyles = {
     left: '0px',
     right: '0px',
     bottom: '0px',
-    backgroundColor: "rgba(102, 102, 0, 0.75)",
-    "z-index": "999"
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
+    zIndex: "999"
   }
 };
 
