@@ -255,6 +255,15 @@ button.session-button:focus {
   cursor: pointer;
 }
 
+.other-form-link:active {
+  color: black;
+}
+
+#guest-login {
+  margin: 4px 10px;
+  background
+};
+
 .session-errors {
   position: absolute;
   left: 80px;

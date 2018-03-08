@@ -17,16 +17,50 @@ class SessionForm extends React.Component {
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const user = Object.assign({}, this.state);
     this.props.processForm({ user }).then(this.props.hideModal);
     this.setState({
       email: "",
       password: ""
     });
+  }
+
+  handleGuest(e) {
+    e.preventDefault();
+
+    const emails = ["TheBestGuest@Scarebnb.com", "ThrillSeeker@spooktookular.com", "VincentPrice@heaven.com"];
+    const passwords = ["hotstuff", "ghosts123", "halloweenparty"];
+    const index = Math.floor(Math.random() * 3);
+    const email = emails[index];
+    const password = passwords[index];
+    let i = 0;
+
+    const fill = () => {
+      let stateUpdate;
+      if (i <= email.length) {
+        stateUpdate = { email: email.slice(0, i)};
+      } else {
+        stateUpdate = { password: password.slice(0, i - email.length)};
+      }
+      // debugger
+      this.setState(stateUpdate, () => {
+        i++;
+        if (i <= email.length + password.length) {
+          setTimeout(fill, 150);
+        } else {
+          this.handleSubmit();
+        }
+      });
+    };
+
+    fill();
   }
 
   handleUpdate(field) {
@@ -77,6 +111,7 @@ class SessionForm extends React.Component {
     };
   }
 
+
   render() {
     let otherFormLink;
     let instructions;
@@ -84,7 +119,10 @@ class SessionForm extends React.Component {
     if (this.props.formType === "Log In") {
       otherFormLink = (
         <div className="other-form-instructions">
-          Don't have an account? {this.props.otherForm}
+          Don't have an account? {this.props.otherForm} or &nbsp;
+          <span class="other-form-link" onClick={this.handleGuest}>
+            Guest Login
+          </span>
         </div>
       );
       instructions = <p className="session-instructions">Log in to continue</p>;
@@ -179,6 +217,7 @@ class SessionForm extends React.Component {
       );
     }
 
+
     let errors;
     if (this.props.errors.length > 0) {
       errors = this.props.errors.join(" AND ");
@@ -200,6 +239,7 @@ class SessionForm extends React.Component {
               onBlur={this.handleBlur("email")}
             >
               <input
+                id="typed"
                 className="session-input-email"
                 type="text"
                 placeholder="Email Address"

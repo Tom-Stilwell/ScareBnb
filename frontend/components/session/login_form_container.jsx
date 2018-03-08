@@ -4,6 +4,7 @@ import SessionForm from "./session_form";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../../actions/modal_actions";
 
+
 const mapStateToProps = (state, ownProps) => {
   const errs = [];
   Object.values(state.errors.session).map(err => {
