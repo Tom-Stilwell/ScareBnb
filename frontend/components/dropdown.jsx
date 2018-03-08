@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserDropdown from "./user_dropdown";
+import { hideDropdown } from "../actions/dropdown_actions";
 
 function Dropdown({ dropdown, hideDropdown }) {
+  // debugger;
   if (!dropdown) {
     return null;
   }
@@ -15,8 +17,8 @@ function Dropdown({ dropdown, hideDropdown }) {
       return null;
   }
   return (
-    <div className="dropdown-background" onClick={hideDropdown}>
-      <div className="dropdown-child" onClick={e => e.stopPropagation()}>
+    <div className="everything-but-dropdown" onClick={hideDropdown}>
+      <div className="dropdown" onClick={e => e.stopPropagation()}>
         {component}
       </div>
     </div>

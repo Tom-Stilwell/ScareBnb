@@ -60,7 +60,7 @@ class ProtectedRightNavBar extends React.Component {
             </div>
           </ul>
         </div>
-        <div>
+        <div className="nav-dropdown">
           <Dropdown />
         </div>
       </div>
