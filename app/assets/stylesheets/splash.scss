@@ -1,0 +1,84 @@
+/* MAIN SPLASH */
+
+#main-splash {
+  position: relative;
+  height: 700px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#main-splash img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+@-webkit-keyframes cfFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cfFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#main-splash img.splash-img {
+  animation-name: cfFadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 50s;
+  animation-direction: normal;
+  -webkit-animation-name: cfFadeInOut;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 50s;
+  -webkit-animation-direction: normal;
+}
+
+#main-splash img.first {
+  z-index: 20;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+#main-splash img.second {
+  z-index: 15;
+  animation-delay: 12.5s;
+  -webkit-animation-delay: 12.5s;
+}
+#main-splash img.third {
+  z-index: 10;
+  animation-delay: 25s;
+  -webkit-animation-delay: 25s;
+}
+
+#main-splash img.bottom {
+  z-index: 1;
+}

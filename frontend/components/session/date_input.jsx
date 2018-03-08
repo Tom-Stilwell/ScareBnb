@@ -69,7 +69,7 @@ function years() {
   return years;
 }
 
-const dateInput = props => (
+export const DateInput = props => (
   <div>
     <select
       onChange={props.handleUpdate("month")}
@@ -97,4 +97,14 @@ const dateInput = props => (
   </div>
 );
 
-export default dateInput;
+export const formatDate = function(month, day, year) {
+  let birthday = "";
+
+  birthday += day.length === 1 ? "0" + day : day;
+  birthday += "/";
+  birthday += month.length === 1 ? "0" + month : month;
+  birthday += "/";
+  birthday += year;
+
+  return birthday;
+};

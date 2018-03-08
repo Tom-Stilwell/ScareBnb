@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import DateInput from "./date_input";
+import { DateInput, formatDate } from "./date_input";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,13 +10,13 @@ class SessionForm extends React.Component {
       password: "",
       fname: "",
       lname: "",
-      birthday: "00/00/0000"
+      month: "",
+      day: "",
+      year: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
     this.handleGuest = this.handleGuest.bind(this);
   }
 
@@ -24,18 +24,28 @@ class SessionForm extends React.Component {
     if (e) {
       e.preventDefault();
     }
-    const user = Object.assign({}, this.state);
-    this.props.processForm({ user }).then(this.props.hideModal);
-    this.setState({
-      email: "",
-      password: ""
+    const user = Object.assign({}, this.state, {
+      birthday: formatDate(this.state.month, this.state.day, this.state.year)
     });
+    this.props
+      .processForm({ user })
+      .then(this.props.hideModal)
+      .then(
+        this.setState({
+          email: "",
+          password: ""
+        })
+      );
   }
 
   handleGuest(e) {
     e.preventDefault();
 
-    const emails = ["TheBestGuest@Scarebnb.com", "ThrillSeeker@spooktookular.com", "VincentPrice@heaven.com"];
+    const emails = [
+      "TheBestGuest@ScareBnb.com",
+      "ThrillSeeker@spooktookular.com",
+      "VincentPrice@heaven.com"
+    ];
     const passwords = ["hotstuff", "ghosts123", "halloweenparty"];
     const index = Math.floor(Math.random() * 3);
     const email = emails[index];
@@ -45,15 +55,17 @@ class SessionForm extends React.Component {
     const fill = () => {
       let stateUpdate;
       if (i <= email.length) {
-        stateUpdate = { email: email.slice(0, i)};
+        stateUpdate = { email: email.slice(0, i) };
       } else {
-        stateUpdate = { password: password.slice(0, i - email.length)};
+        stateUpdate = { password: password.slice(0, i - email.length) };
       }
       // debugger
+      let interval = 150;
       this.setState(stateUpdate, () => {
         i++;
         if (i <= email.length + password.length) {
-          setTimeout(fill, 150);
+          setTimeout(fill, interval);
+          interval -= 20;
         } else {
           this.handleSubmit();
         }
@@ -64,37 +76,11 @@ class SessionForm extends React.Component {
   }
 
   handleUpdate(field) {
-    if (field === "month") {
-      return e => {
-        e.stopPropagation();
-        let birthday = this.state.birthday;
-        let month =
-          e.target.value.length === 1 ? "0" + e.target.value : e.target.value;
-        birthday = month + birthday.slice(2, 10);
-        this.setState({ birthday });
-      };
-    } else if (field === "day") {
-      return e => {
-        e.stopPropagation();
-        let birthday = this.state.birthday;
-        let day =
-          e.target.value.length === 1 ? "0" + e.target.value : e.target.value;
-        birthday = birthday.slice(0, 3) + day + birthday.slice(5, 10);
-        this.setState({ birthday });
-      };
-    } else if (field === "year") {
-      return e => {
-        e.stopPropagation();
-        let birthday = this.state.birthday;
-        birthday = birthday.slice(0, 6) + e.target.value;
-        this.setState({ birthday });
-      };
-    } else {
-      return e => {
-        e.stopPropagation();
-        this.setState({ [field]: e.target.value });
-      };
-    }
+    return e => {
+      // debugger;
+      e.stopPropagation();
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   handleFocus(id) {
@@ -110,7 +96,6 @@ class SessionForm extends React.Component {
         "1px solid #dbdbdb";
     };
   }
-
 
   render() {
     let otherFormLink;
@@ -216,7 +201,6 @@ class SessionForm extends React.Component {
         </div>
       );
     }
-
 
     let errors;
     if (this.props.errors.length > 0) {

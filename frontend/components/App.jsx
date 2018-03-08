@@ -3,6 +3,7 @@ import NavBar from "./navbar_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Modal from "./modal";
+import MainSplash from "./main_splash";
 
 const App = () => (
   <main>
@@ -11,6 +12,8 @@ const App = () => (
     <header>
       <h1>Scare BnB</h1>
     </header>
+
+    <MainSplash />
 
     <Switch />
   </main>
