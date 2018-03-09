@@ -7,19 +7,17 @@ class HomeIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchHomes();
+    // this.props.fetchHomes();
   }
 
   render() {
     return (
-      <div>
-        <ul>
+      <div className="index-page">
+        <div className="home-index-div">
           {this.props.homes.map(home => (
-            <li key={home.id}>
-              <HomeIndexItem home={home} />
-            </li>
+            <HomeIndexItem key={home.id} home={home} />
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

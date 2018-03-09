@@ -10,13 +10,11 @@ const App = () => (
   <main>
     <Modal />
     <NavBar />
-    <header>
-      <h1>Scare BnB</h1>
-    </header>
 
     <Switch>
-      <Route exact path="/homes" component={HomeSearch}></Route>
-      <Route path="/" component={MainSplash}></Route>
+      <Route exact path="/homes/:id" component={MainSplash} />
+      <Route exact path="/homes" component={HomeSearch} />
+      <Route path="/" component={MainSplash} />
     </Switch>
   </main>
 );

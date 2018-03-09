@@ -1,0 +1,105 @@
+.home-search {
+  display: flex;
+  position: relative;
+}
+
+.home-search-header {
+  position: fixed;
+  top: 81px;
+  display: block;
+  height: 65px;
+  z-index: 10;
+  border-bottom: 1px solid #e4e4e4;
+  background-color: white;
+  width: 100%;
+}
+
+.map {
+  position: fixed;
+  display: block;
+  height: 40px;
+}
+
+#map-fix {
+  position: fixed;
+  top: 165px;
+  right: 20px;
+  left: auto;
+  width: 600px;
+  height: 700px;
+}
+
+#home-map-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#home-map-container img {
+  max-width: none !important;
+}
+
+.index-page {
+  height: 100%;
+  width: 1250px;
+  margin-right: 625px;
+}
+
+.home-index-div {
+  margin-top: 200px;
+  // margin-right: 620px;
+  padding-left: 10px;
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .home-index-div {
+    display: none;
+  }
+}
+
+.home-index-item-div {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-image {
+  display: block;
+}
+
+.thumbnail-info {
+  width: 100%;
+  height: 100px;
+}
+
+.thumbnail-occupancy {
+  display: block;
+  color: darkblue;
+}
+
+.thumbnail-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.thumbnail-price {
+  display: block;
+  font-weight: 200;
+}
+
+.window-info {
+  padding-left: 10px;
+  width: 100%;
+  height: 60px;
+}
+
+.gm-style-iw {
+  position: absolute !important;
+  left: 18px !important;
+  width: 386px !important;
+}

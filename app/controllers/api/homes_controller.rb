@@ -1,6 +1,12 @@
 class Api::HomesController < ApplicationController
   def index
-    @homes = Home.all
+    # debugger
+    @homes = Home.in_bounds(params[:bounds])
+
+    if min_guests = params[:min_guests]
+      @homes = @homes.select {|home| home.guests > min_guests}
+    end
+
   end
 
   def create
@@ -64,6 +70,6 @@ class Api::HomesController < ApplicationController
   private
 
   def home_params
-    params.require(:home).permit(:title, :lat, :lng, :price, :occupancy, :beds, :baths, :host_id)
+    params.require(:home).permit(:title, :lat, :lng, :price, :occupancy, :beds, :baths, :image_url, :host_id, :min_guests, :bounds)
   end
 end

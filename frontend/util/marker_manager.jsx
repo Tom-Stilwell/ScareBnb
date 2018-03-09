@@ -1,3 +1,6 @@
+import React from "react";
+import { HomeIndexItem } from "../components/home/home_index_item";
+
 export default class MarkerManager {
   constructor(map) {
     this.map = map;
@@ -62,6 +65,7 @@ export default class MarkerManager {
       opacity: 1,
       position: latLng,
       title: home.title,
+      homeId: home.id,
       icon: icon1,
       label: {
         text: `$${home.price}`,
@@ -79,6 +83,36 @@ export default class MarkerManager {
     marker.addListener("mouseout", () => {
       marker.setIcon(icon1);
       marker.setZIndex(marker.zIndex / 100);
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div class="window-div">
+        <a href="/#/homes/${home.id}">
+          <span>
+            <img
+              class="window-image"
+              src=${home.image_url}
+              style="width: 300px; height: 200px;"
+            />
+          </span>
+
+          <div class="window-info" style="height: 60px; padding-left: 10px;">
+            <span class="window-occupancy" style="display: block;">
+              ${home.occupancy} people, ${home.beds} beds
+            </span>
+            <span class="window-title" style="display: block; font-weight: 500; font-size: 18px;">${
+              home.title
+            }</span>
+            <span class="window-price">From $${home.price} per night</span>
+          </div>
+        </a>
+      </div>`
+    });
+
+    // debugger;
+
+    marker.addListener("click", () => {
+      infoWindow.open(this.map, marker);
     });
 
     this.markers[home.id] = marker;

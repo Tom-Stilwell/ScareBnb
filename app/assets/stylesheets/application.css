@@ -31,6 +31,7 @@ ul {
   background: transparent;
   font-family: "Barlow", sans-serif;
   color: #595959;
+  text-decoration: none;
 }
 body {
   font-family: sans-serif;
@@ -51,9 +52,4 @@ input:focus {
 
 input::placeholder {
   font-weight: lighter;
-}
-
-#map-container {
-  width: 600px;
-  height: 600px;
 }
