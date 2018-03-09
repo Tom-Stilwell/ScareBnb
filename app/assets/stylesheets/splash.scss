@@ -2,16 +2,22 @@
 
 #main-splash {
   position: relative;
-  height: 700px;
-  width: 90%;
+  height: 600px;
+  width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #main-splash img {
   position: absolute;
-  width: 100%;
+  width: 1970px;
+  height: 800px;
+  left: -50px;
+}
+
+#main-splash img.bottom {
   height: 100%;
-  left: 0;
+  width: 1920px;
 }
 
 @-webkit-keyframes cfFadeInOut {
@@ -20,6 +26,7 @@
   }
   20% {
     opacity: 1;
+    transform: translate3d(50px, -100px, 0px);
   }
   25% {
     opacity: 0;
@@ -38,6 +45,7 @@
   }
   20% {
     opacity: 1;
+    transform: translate3d(50px, -100px, 0px);
   }
   25% {
     opacity: 0;
@@ -52,33 +60,33 @@
 
 #main-splash img.splash-img {
   animation-name: cfFadeInOut;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
   animation-iteration-count: infinite;
   animation-duration: 50s;
   animation-direction: normal;
   -webkit-animation-name: cfFadeInOut;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-out;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 50s;
   -webkit-animation-direction: normal;
 }
 
 #main-splash img.first {
-  z-index: 20;
+  z-index: 3;
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
 }
 #main-splash img.second {
-  z-index: 15;
+  z-index: 2;
   animation-delay: 12.5s;
   -webkit-animation-delay: 12.5s;
 }
 #main-splash img.third {
-  z-index: 10;
+  z-index: 1;
   animation-delay: 25s;
   -webkit-animation-delay: 25s;
 }
 
 #main-splash img.bottom {
-  z-index: 1;
+  z-index: -5;
 }

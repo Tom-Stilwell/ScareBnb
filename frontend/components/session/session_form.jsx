@@ -10,9 +10,9 @@ class SessionForm extends React.Component {
       password: "",
       fname: "",
       lname: "",
-      month: "",
-      day: "",
-      year: ""
+      month: "Month",
+      day: "Day",
+      year: "Year"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -101,11 +101,12 @@ class SessionForm extends React.Component {
     let otherFormLink;
     let instructions;
     let additionalInputs;
+    const { day, month, year } = this.state;
     if (this.props.formType === "Log In") {
       otherFormLink = (
         <div className="other-form-instructions">
           Don't have an account? {this.props.otherForm} or &nbsp;
-          <span class="other-form-link" onClick={this.handleGuest}>
+          <span className="other-form-link" onClick={this.handleGuest}>
             Guest Login
           </span>
         </div>
@@ -187,7 +188,12 @@ class SessionForm extends React.Component {
               To sign up, you must be 18 or older. Other people won’t see your
               birthday.
             </p>
-            <DateInput handleUpdate={this.handleUpdate} />
+            <DateInput
+              handleUpdate={this.handleUpdate}
+              day={day}
+              month={month}
+              year={year}
+            />
             <div className="marketing-emails-opt">
               <input id="marketing-checkbox" type="checkbox" />
               <div className="checkbox-label">

@@ -17,7 +17,7 @@ const monthArray = [
 
 function days() {
   let days = [
-    <option key="-1" disabled selected="true">
+    <option key="-1" disabled value="Day">
       Day
     </option>
   ];
@@ -35,7 +35,7 @@ function days() {
 
 function months() {
   let months = [
-    <option key="-1" disabled selected="true">
+    <option key="-1" disabled value="Month">
       Month
     </option>
   ];
@@ -53,7 +53,7 @@ function months() {
 
 function years() {
   let years = [
-    <option key="-1" disabled selected="true">
+    <option key="-1" disabled value="Year">
       Year
     </option>
   ];
@@ -75,6 +75,7 @@ export const DateInput = props => (
       onChange={props.handleUpdate("month")}
       className="birthday-select"
       name="month"
+      value={props.month}
     >
       {months()}
     </select>
@@ -83,6 +84,7 @@ export const DateInput = props => (
       onChange={props.handleUpdate("day")}
       className="birthday-select"
       name="days"
+      value={props.day}
     >
       {days()}
     </select>
@@ -91,6 +93,7 @@ export const DateInput = props => (
       onChange={props.handleUpdate("year")}
       className="birthday-select"
       name="year"
+      value={props.year}
     >
       {years()}
     </select>

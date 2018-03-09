@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  host_id: 1
+  title: MyString
+  description: MyText
+  rules: MyText
+  cancellations: MyText
+  baths: 1
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  occupancy: 1
+  beds: 1
+
+two:
+  host_id: 1
+  title: MyString
+  description: MyText
+  rules: MyText
+  cancellations: MyText
+  baths: 1
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  occupancy: 1
+  beds: 1

@@ -5,10 +5,17 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :homes,
+    class_name: "Home",
+    foreign_key: :host_id,
+    primary_key: :id
+
+
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
-    user = User.find_by_email(email)
+    user = User.find_by_email(email.downcase)
 
     if user && user.is_password?(password)
       user
@@ -19,6 +26,10 @@ class User < ApplicationRecord
 
   def self.generate_random_token
     SecureRandom.urlsafe_base64
+  end
+
+  def email=(email)
+    super(email.downcase)
   end
 
   def reset_session_token!
