@@ -1,0 +1,131 @@
+/* SESSION FORMS */
+
+.session-instructions {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.session-form {
+  align-items: center;
+  width: 500px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #ff6666;
+  color: #ffffff;
+  line-height: 22px;
+  font-size: 19px;
+  padding: 12px 0;
+  border-radius: 4px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  outline: none;
+}
+
+[class^="session-div-input-"] {
+  width: 100%;
+  display: block;
+  z-index: 0;
+  background-color: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 8px;
+  line-height: 24px;
+}
+
+[class^="session-input-"] {
+  line-height: 24px;
+  font-size: 19px;
+  color: #484848;
+  font-weight: 300;
+  background-color: transparent;
+  border: 0;
+  padding: 11px;
+  padding-right: 0;
+  width: 90%;
+}
+
+[class^="session-icon-"] {
+  width: 10%;
+}
+
+.session-div-input-birthday {
+  border: none;
+}
+
+.session-birthday-header {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 4px;
+}
+
+.session-birthday-info {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 4px;
+}
+
+.birthday-select {
+  font-size: 19px;
+  padding: 11px 40px 11px 11px;
+  color: #484848;
+  font-weight: 300;
+  margin: 10px;
+  font-family: "Barlow", sans-serif;
+  background: none;
+  background-color: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #dbdbdb;
+}
+
+.birthday-select:focus {
+  outline: none;
+  border: 1px solid #006666;
+}
+
+.marketing-emails-opt {
+  margin: 10px 0;
+  display: flex;
+  vertical-align: center;
+}
+
+.checkbox-label {
+  padding-left: 4px;
+}
+
+#marketing-checkbox {
+  float: left;
+}
+
+.other-form-instructions {
+  padding: 20px;
+}
+
+.other-form-link {
+  color: #009999;
+}
+
+.other-form-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.other-form-link:active {
+  color: black;
+}
+
+#guest-login {
+  margin: 4px 10px;
+}
+
+.session-errors {
+  position: absolute;
+  left: 80px;
+  top: 20px;
+  color: red;
+}

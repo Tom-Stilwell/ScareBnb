@@ -1,0 +1,90 @@
+/* NAVBAR */
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e4e4e4;
+  /* justify-content: space-between; */
+  margin-top: 0;
+  /* display: table; */
+  padding-left: 0;
+  height: 80px;
+  position: relative;
+  z-index: 5;
+  /* box-shadow: 0 1px 0 #DBDBDB; */
+  width: 100%;
+}
+
+.right-navbar {
+  /* display: table-cell; */
+  display: block;
+  vertical-align: middle;
+  max-height: 81px;
+}
+.right-navbar-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: table;
+}
+
+div.logo {
+  display: table-cell;
+  vertical-align: middle;
+  width: 10%;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+.logo img {
+  filter: opacity(0.5) drop-shadow(0 0 0 red) brightness(3);
+  width: 40px;
+}
+
+.session-button {
+  font-size: 12px;
+  font-weight: 600;
+  color: #737373;
+  line-height: 20px;
+  padding: 29px 10px;
+  margin: 1px 0px;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 0;
+}
+
+.login-div button,
+.user-icon-div button {
+  right: 20px;
+}
+
+.signup-div button {
+  right: 100px;
+}
+
+.help-div button {
+  right: 80px;
+}
+
+.messages-div button {
+  right: 140px;
+}
+
+.trips-div button {
+  right: 220px;
+}
+
+button.session-button:hover {
+  border-bottom: 2px solid gray;
+  cursor: pointer;
+}
+
+button.session-button:active {
+  border-bottom: none;
+  outline: none;
+}
+
+button.session-button:focus {
+  outline: none;
+}

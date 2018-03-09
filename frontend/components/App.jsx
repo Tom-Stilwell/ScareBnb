@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Modal from "./modal";
 import MainSplash from "./main_splash";
+import HomeSearch from "./home_search_container";
 
 const App = () => (
   <main>
@@ -13,9 +14,10 @@ const App = () => (
       <h1>Scare BnB</h1>
     </header>
 
-    <MainSplash />
-
-    <Switch />
+    <Switch>
+      <Route exact path="/homes" component={HomeSearch}></Route>
+      <Route path="/" component={MainSplash}></Route>
+    </Switch>
   </main>
 );
 
