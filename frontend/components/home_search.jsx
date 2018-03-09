@@ -1,6 +1,7 @@
 import React from "react";
 import HomeMap from "./map/home_map";
 import HomeIndex from "./home/home_index";
+import FilterBar from "./filters/filter_bar";
 
 class HomeSearch extends React.Component {
   constructor(props) {
@@ -16,9 +17,7 @@ class HomeSearch extends React.Component {
     let { homes, updateFilter } = this.props;
     return (
       <div className="home-search">
-        <header className="home-search-header">
-          Home Search Filter Buttons!
-        </header>
+        <FilterBar />
         <HomeIndex homes={homes} />
         <HomeMap className="map" homes={homes} updateFilter={updateFilter} />
       </div>

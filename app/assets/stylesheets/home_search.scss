@@ -3,17 +3,6 @@
   position: relative;
 }
 
-.home-search-header {
-  position: fixed;
-  top: 81px;
-  display: block;
-  height: 65px;
-  z-index: 10;
-  border-bottom: 1px solid #e4e4e4;
-  background-color: white;
-  width: 100%;
-}
-
 .map {
   position: fixed;
   display: block;
@@ -69,6 +58,7 @@
 
 .thumbnail-image {
   display: block;
+  border-radius: 4px;
 }
 
 .thumbnail-info {
