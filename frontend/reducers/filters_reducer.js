@@ -6,7 +6,7 @@ const defaultState = {
     northEast: "(40.810791571016026, -73.93118958691406)",
     southWest: "(40.71978127121087, -74.03418641308593)"
   },
-  minGuests: 0
+  minGuests: 1
 };
 
 const filterReducer = (oldState = defaultState, action) => {

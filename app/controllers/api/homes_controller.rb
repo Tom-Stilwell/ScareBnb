@@ -3,8 +3,8 @@ class Api::HomesController < ApplicationController
     # debugger
     @homes = Home.in_bounds(params[:bounds])
 
-    if min_guests = params[:min_guests]
-      @homes = @homes.select {|home| home.guests > min_guests}
+    if min_guests = params[:minGuests]
+      @homes = @homes.select {|home| home.occupancy >= min_guests.to_i}
     end
 
   end

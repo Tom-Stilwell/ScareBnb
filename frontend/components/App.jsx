@@ -9,13 +9,13 @@ import HomeSearch from "./home_search_container";
 const App = () => (
   <main>
     <Modal />
-    <NavBar />
 
     <Switch>
       <Route exact path="/homes/:id" component={MainSplash} />
       <Route exact path="/homes" component={HomeSearch} />
       <Route path="/" component={MainSplash} />
     </Switch>
+    <NavBar />
   </main>
 );
 

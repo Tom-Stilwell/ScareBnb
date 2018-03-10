@@ -6,7 +6,12 @@ import GuestsFilter from "./guests_filter";
 class FilterBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { box: null };
+    this.state = {
+      box: null,
+      dates: "Dates",
+      minGuests: "Guests",
+      price: "Price"
+    };
     this.handleClick = this.handleClick.bind(this);
     this.hideBox = this.hideBox.bind(this);
   }
@@ -22,30 +27,55 @@ class FilterBar extends React.Component {
   }
 
   render() {
-    let Component = this.state.box ? this.state.box + "Filter" : null;
-    Component = Component ? (
-      <Component
-        className={this.state.box}
-        updateFilter={this.props.updateFilter}
-      />
-    ) : null;
-    // debugger;
+    let component;
+
+    if (this.state.box === "Guests") {
+      component = (
+        <GuestsFilter
+          updateFilter={this.props.updateFilter}
+          hideBox={this.hideBox}
+          minGuests={this.props.filters.minGuests}
+        />
+      );
+    }
+
     return (
       <div>
         <div className="filter-bar">
-          <div onClick={this.handleClick("Dates")} className="filter-button">
-            Dates
+          <div
+            onClick={this.handleClick("Dates")}
+            className={
+              this.state.box === "Dates"
+                ? "filter-button selected"
+                : "filter-button"
+            }
+          >
+            {this.state.dates}
           </div>
-          <div onClick={this.handleClick("Guests")} className="filter-button">
-            Guests
+          <div
+            onClick={this.handleClick("Guests")}
+            className={
+              this.state.box === "Guests"
+                ? "filter-button selected"
+                : "filter-button"
+            }
+          >
+            {this.state.minGuests}
           </div>
-          <div onClick={this.handleClick("Price")} className="filter-button">
-            Price
+          <div
+            onClick={this.handleClick("Price")}
+            className={
+              this.state.box === "Dates"
+                ? "filter-button selected"
+                : "filter-button"
+            }
+          >
+            {this.state.price}
           </div>
         </div>
-        {Component && (
+        {component && (
           <div className="everything-but-filter" onClick={this.hideBox}>
-            <div onClick={e => e.stopPropagation()}>{Component}</div>
+            <div onClick={e => e.stopPropagation()}>{component}</div>
           </div>
         )}
       </div>

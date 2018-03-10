@@ -92,7 +92,7 @@ export default class MarkerManager {
             <img
               class="window-image"
               src=${home.image_url}
-              style="width: 300px; height: 200px;"
+              style="width: 270px; height: 180px;"
             />
           </span>
 
