@@ -2,10 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { updateFilter } from "../../actions/filter_actions";
 import GuestsFilter from "./guests_filter";
+import PriceFilter from "./price_filter";
 
 class FilterBar extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       box: null,
       dates: "Dates",
@@ -16,8 +18,33 @@ class FilterBar extends React.Component {
     this.hideBox = this.hideBox.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    const minGuests =
+      props.filters.minGuests > 1
+        ? `${props.filters.minGuests}+ guests`
+        : "Guests";
+
+    let price;
+    const minPrice = props.filters.price.minPrice;
+    const maxPrice = props.filters.price.maxPrice;
+    if (minPrice > 10 && maxPrice < 1000) {
+      price = `$${minPrice} - $${maxPrice}`;
+    } else if (minPrice > 10) {
+      price = `$${minPrice} +`;
+    } else if (maxPrice < 1000) {
+      price = `Up to $${maxPrice} `;
+    } else {
+      price = "Price";
+    }
+
+    const dates = "Dates";
+
+    this.setState({ minGuests, price, dates });
+  }
+
   handleClick(box) {
     return e => {
+      e.stopPropagation();
       this.setState({ box });
     };
   }
@@ -37,10 +64,19 @@ class FilterBar extends React.Component {
           minGuests={this.props.filters.minGuests}
         />
       );
+    } else if (this.state.box === "Price") {
+      component = (
+        <PriceFilter
+          updateFilter={this.props.updateFilter}
+          hideBox={this.hideBox}
+          minPrice={this.props.filters.price.minPrice}
+          maxPrice={this.props.filters.price.maxPrice}
+        />
+      );
     }
 
     return (
-      <div>
+      <div onClick={this.hideBox}>
         <div className="filter-bar">
           <div
             onClick={this.handleClick("Dates")}
@@ -55,7 +91,7 @@ class FilterBar extends React.Component {
           <div
             onClick={this.handleClick("Guests")}
             className={
-              this.state.box === "Guests"
+              this.state.box === "Guests" || this.props.filters.minGuests > 1
                 ? "filter-button selected"
                 : "filter-button"
             }
@@ -65,7 +101,9 @@ class FilterBar extends React.Component {
           <div
             onClick={this.handleClick("Price")}
             className={
-              this.state.box === "Dates"
+              this.state.box === "Price" ||
+              this.props.filters.price.minPrice > 10 ||
+              this.props.filters.price.maxPrice < 1000
                 ? "filter-button selected"
                 : "filter-button"
             }

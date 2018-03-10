@@ -7,6 +7,10 @@ class Api::HomesController < ApplicationController
       @homes = @homes.select {|home| home.occupancy >= min_guests.to_i}
     end
 
+    if price_range = params[:price]
+      @homes = @homes.select {|home| home.price.between?(params[:price][:minPrice].to_i, params[:price][:maxPrice].to_i)}
+    end
+
   end
 
   def create

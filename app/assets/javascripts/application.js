@@ -15,3 +15,5 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widget
+//= require jquery-ui/widgets/slider

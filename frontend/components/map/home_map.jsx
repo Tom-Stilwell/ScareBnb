@@ -11,9 +11,8 @@ class HomeMap extends React.Component {
 
   componentDidMount() {
     let homes = this.props.homes;
-
     const mapOptions = {
-      center: { lat: 40.765302, lng: -73.982688 },
+      center: { lat: this.props.center.lat, lng: this.props.center.lng },
       zoom: 13,
       clickableIcons: false
     };
@@ -46,8 +45,10 @@ class HomeMap extends React.Component {
   //   });
   // }
   //
-  componentWillReceiveProps(props) {
-    this.MarkerManager.updateMarkers(props.homes);
+  componentWillReceiveProps({ homes, center }) {
+    // debugger;
+    this.MarkerManager.updateMarkers(homes);
+    this.map.setCenter({ lat: center.lat, lng: center.lng });
   }
 
   render() {

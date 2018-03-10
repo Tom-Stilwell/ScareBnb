@@ -2,7 +2,7 @@
 
 #main-splash {
   position: relative;
-  height: 600px;
+  height: 800px;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -11,13 +11,16 @@
 #main-splash img {
   position: absolute;
   width: 1970px;
-  height: 800px;
+  height: 900px;
+  bottom: -100px;
   left: -50px;
 }
 
 #main-splash img.bottom {
-  height: 100%;
+  height: 800px;
   width: 1920px;
+  bottom: 0;
+  left: 0;
 }
 
 @-webkit-keyframes cfFadeInOut {
@@ -89,4 +92,46 @@
 
 #main-splash img.bottom {
   z-index: -5;
+}
+
+.splash-text {
+  position: absolute;
+  top: 350px;
+  left: 450px;
+  height: 200px;
+  width: 640px;
+  z-index: 50;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 600;
+  animation-name: splashTextFade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 50s;
+  animation-delay: 37.5s;
+  animation-direction: normal;
+  -webkit-animation-name: splashTextFade;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 37.5s;
+  -webkit-animation-duration: 50s;
+  -webkit-animation-direction: normal;
+}
+
+@-webkit-keyframes splashTextFade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

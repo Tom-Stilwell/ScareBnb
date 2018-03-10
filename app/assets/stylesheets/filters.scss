@@ -40,6 +40,7 @@
 
 .selected {
   background-color: #239090;
+  color: #ffffff;
 }
 
 .guests-filter {
@@ -115,6 +116,114 @@
 
 .guests-filter-apply:hover,
 .guests-filter-clear:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.price-filter {
+  z-index: 500;
+  width: 350px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  position: absolute;
+  top: 147px;
+  left: 200px;
+}
+
+.price-filter-content {
+  padding: 30px 16px 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+  vertical-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.price-range {
+  font-size: 18px;
+  font-weight: 400;
+  color: grey;
+  border: none;
+}
+
+#price-slider {
+  width: 260px;
+  margin-left: 10px;
+  margin-top: 30px !important;
+}
+
+.price-filter-average {
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 0 !important;
+}
+
+.price-slider p {
+  margin-bottom: 20px !important;
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+}
+
+.ui-slider-handle {
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 20px !important;
+  background-color: #ffffff !important;
+  bottom: 30px !important;
+  top: -16px !important;
+  // left: -4px !important;
+}
+
+.ui-slider-horizontal {
+  height: 6px !important;
+}
+.ui-slider-handle:first-of-type {
+  // left: -5% !important;
+}
+
+.ui-slider-handle:active {
+  outline: none !important;
+  border-color: #239090 !important;
+  z-index: 1000 !important;
+}
+
+.ui-slider-handle:focus {
+  outline: none !important;
+}
+
+.ui-slider {
+  margin-top: 20px !important;
+}
+
+.ui-slider-range {
+  bottom: -10px !important;
+  background-color: #239090 !important;
+}
+
+.price-filter-apply-clear {
+  position: absolute;
+  bottom: 10px;
+  font-size: 16px;
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-filter-apply {
+  margin-left: 260px;
+  color: #239090;
+}
+
+.price-filter-clear {
+  position: absolute;
+  left: 10 px;
+}
+
+.price-filter-apply:hover,
+.price-filter-clear:hover {
   cursor: pointer;
   text-decoration: underline;
 }

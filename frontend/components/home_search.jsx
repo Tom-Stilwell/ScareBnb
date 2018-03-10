@@ -14,12 +14,17 @@ class HomeSearch extends React.Component {
   }
 
   render() {
-    let { homes, updateFilter } = this.props;
+    let { homes, updateFilter, filters } = this.props;
     return (
       <div className="home-search">
         <FilterBar />
         <HomeIndex homes={homes} />
-        <HomeMap className="map" homes={homes} updateFilter={updateFilter} />
+        <HomeMap
+          className="map"
+          homes={homes}
+          updateFilter={updateFilter}
+          center={filters.location}
+        />
       </div>
     );
   }

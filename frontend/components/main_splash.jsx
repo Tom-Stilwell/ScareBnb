@@ -8,10 +8,14 @@ import welcome from "../../app/assets/images/welcome.jpg";
 const splash = props => {
   return (
     <div id="main-splash">
-      <img className="first splash-img" src={house1} />
-      <img className="third splash-img" src={house2} />
+      <img className="first splash-img" src={house2} />
+      <img className="third splash-img" src={house1} />
       <img className="second splash-img" src={house3} />
       <img className="bottom" src={welcome} />
+      <div className="splash-text">
+        Book spooky homes and experiences all over the world.
+        <div className="splash-search" />
+      </div>
     </div>
   );
 };
