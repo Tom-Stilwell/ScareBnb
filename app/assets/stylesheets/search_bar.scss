@@ -1,0 +1,51 @@
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 460px;
+  height: 50px;
+  border: 1px solid lightgrey;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px 0px rgba(212, 212, 212, 1);
+  margin-left: 110px;
+  margin-top: 14px;
+}
+
+.search-bar-input {
+  border: none;
+  line-height: 30px;
+  width: 400px;
+  vertical-align: center;
+  font-size: 20px;
+  color: #595959;
+}
+
+.magnifying-glass {
+  // width: 40px;
+  // height: 40px;
+  transform: scale(1.5);
+  filter: brightness(1.7);
+}
+
+.magnifying-glass-div {
+  margin: 15px 5px 10px 20px;
+  display: inline-block;
+}
+
+.closer {
+  width: 20px;
+  line-height: 20px;
+  vertical-align: center;
+  text-align: center;
+  margin: 15px;
+  font-size: 28px;
+  color: #b3b3b3;
+  font-weight: lighter;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+
+.closer:hover {
+  cursor: pointer;
+}

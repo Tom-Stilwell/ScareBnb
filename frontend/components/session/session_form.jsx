@@ -27,15 +27,7 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state, {
       birthday: formatDate(this.state.month, this.state.day, this.state.year)
     });
-    this.props
-      .processForm({ user })
-      .then(this.props.hideModal)
-      .then(
-        this.setState({
-          email: "",
-          password: ""
-        })
-      );
+    this.props.processForm({ user }).then(this.props.hideModal);
   }
 
   handleGuest(e) {

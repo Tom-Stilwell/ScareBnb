@@ -19,12 +19,7 @@ class HomeSearch extends React.Component {
       <div className="home-search">
         <FilterBar />
         <HomeIndex homes={homes} />
-        <HomeMap
-          className="map"
-          homes={homes}
-          updateFilter={updateFilter}
-          center={filters.location}
-        />
+        <HomeMap className="map" homes={homes} updateFilter={updateFilter} />
       </div>
     );
   }

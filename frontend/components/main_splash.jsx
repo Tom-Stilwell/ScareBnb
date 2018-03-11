@@ -4,6 +4,7 @@ import house2 from "../../app/assets/images/House2.jpg";
 import house3 from "../../app/assets/images/House3.jpg";
 import amityHouse from "../../app/assets/images/amityHouse.jpg";
 import welcome from "../../app/assets/images/welcome.jpg";
+import SearchBar from "./search_bar";
 
 const splash = props => {
   return (

@@ -10,10 +10,6 @@ const defaultState = {
   price: {
     minPrice: 0,
     maxPrice: 1000
-  },
-  location: {
-    lat: 40.765302,
-    lng: -73.982688
   }
 };
 

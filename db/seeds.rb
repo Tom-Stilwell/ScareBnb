@@ -18,6 +18,7 @@ u5 = User.create({email: "ExorciseTHIS@LindaBlair.com", password: "helpmeplease"
 u6 = User.create({email: "MondayTuesday@ThursdayFriday.net", password: "pugsleysucks", birthday: "25/12/1986", fname: "Wednesday", lname: "Addams"})
 u7 = User.create({email: "iLoveGhosts@werewolves.com", password: "teeheexoxo", birthday: "19/09/1999", fname: "Becky", lname: "Smith"})
 
+USERS= [u0,u1,u2,u3,u4,u5,u6,u7]
 
 h1 = Home.create({title: "Little Bungalow", lat: 40.751265, lng: -73.983979, price: 50, occupancy: 6, beds: 4, baths: 1, host_id: u0.id, image_url: "http://www.homejournal.hk/wp-content/uploads/2016/11/highlight-2.jpg"})
 h2 = Home.create({title: "Small Shack", lat: 40.789980, lng: -73.941654, price: 20, occupancy: 4, beds: 3, baths: 1, host_id: u0.id, image_url: "http://www.homejournal.hk/wp-content/uploads/2016/10/highlight-1.jpg"})
@@ -26,3 +27,21 @@ h4 = Home.create({title: "Funky Townhouse", lat: 40.729943, lng: -73.981064, pri
 h5 = Home.create({title: "Amity House", lat: 40.751264, lng: -73.983400, price: 20, occupancy: 8, beds: 6, baths: 1, host_id: u2.id, image_url: "https://s-media-cache-ak0.pinimg.com/474x/05/3a/64/053a647f56000ecd468fdeb85410a18a.jpg"})
 h6 = Home.create({title: "Addams Family Mansion", lat: 40.741232, lng: -73.973934, price: 15, occupancy: 2, beds: 1, baths: 1, host_id: u3.id, image_url: "https://www.remotelands.com/remotenew1/dist/images/hotel/preferhotel/s160826001.jpg"})
 h7 = Home.create({title: "Room 23", lat: 40.711222, lng: -73.983979, price: 60, occupancy: 4, beds: 4, baths: 1, host_id: u4.id, image_url: "https://i0.wp.com/danniebspeaks.com/wp-content/uploads/2016/10/Mooneys-mansion.jpg?resize=375%2C250"})
+
+ARTICLES = ["The", "One", "My", "Your", "Some", "Another"]
+ADJECTIVES = ["Spooky", "Thrilling", "Creepy", "Slimy", "Haunted", "Creaky", "Cavernous", "Oozing", "Shrieking", "Mysterious", "Suspicious", "Suspiciously Clean", "Deserted", "Abandoned", "Foggy", "Howling"]
+NOUNS = ["Shack", "Mansion", "Warehouse", "Mill", "Factory", "Forest", "Bog", "Basement", "Hotel", "Motel", "Beach House", "Loft", "Room", "Hospital Bed"]
+
+IMAGES = ["http://www.homejournal.hk/wp-content/uploads/2016/11/highlight-2.jpg", "http://www.homejournal.hk/wp-content/uploads/2016/10/highlight-1.jpg", "https://i.pinimg.com/originals/15/05/f3/1505f37dc300663b7a8b7fb1384e43a3.jpg", "https://s-media-cache-ak0.pinimg.com/originals/fa/5a/9e/fa5a9edb069e5fdccf67ab3542267493.jpg", "https://s-media-cache-ak0.pinimg.com/474x/05/3a/64/053a647f56000ecd468fdeb85410a18a.jpg", "https://www.remotelands.com/remotenew1/dist/images/hotel/preferhotel/s160826001.jpg", "https://i0.wp.com/danniebspeaks.com/wp-content/uploads/2016/10/Mooneys-mansion.jpg?resize=375%2C250"  ]
+
+def randomHomeTitle
+  title = ARTICLES.sample + " " + ADJECTIVES.sample + " " + NOUNS.sample
+end
+
+def randomUserId
+  USERS.sample[:id]
+end
+
+100.times do
+  Home.create({title: randomHomeTitle, lat: rand(40.000000...41.000000), lng: rand(-74.1000000...-73.900000), price: rand(10...1000), occupancy: rand(1...20), beds: rand(1...8), baths: rand(1...4), host_id: randomUserId, image_url: IMAGES.sample })
+end

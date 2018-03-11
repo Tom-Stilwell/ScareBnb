@@ -6,17 +6,30 @@ class HomeMap extends React.Component {
   constructor(props) {
     super(props);
     this.updateFilter = this.props.updateFilter.bind(this);
-    // this._handleClick = this._handleClick.bind(this);
+    this.lat = 0;
+    this.lng = 0;
   }
 
   componentDidMount() {
     let homes = this.props.homes;
+    // debugger;
+    // let lat, lng;
+    if (!!this.props.location.search) {
+      const search = this.props.location.search;
+      const params = new URLSearchParams(search);
+      this.lat = parseFloat(params.get("lat"));
+      this.lng = parseFloat(params.get("lng"));
+      // debugger;
+    } else {
+      this.lat = 40.765302;
+      this.lng = -73.982688;
+    }
     const mapOptions = {
-      center: { lat: this.props.center.lat, lng: this.props.center.lng },
+      center: { lat: this.lat, lng: this.lng },
       zoom: 13,
       clickableIcons: false
     };
-
+    // debugger;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
 
@@ -45,10 +58,19 @@ class HomeMap extends React.Component {
   //   });
   // }
   //
-  componentWillReceiveProps({ homes, center }) {
+  componentWillReceiveProps({ homes, location }) {
+    const oldLat = this.lat;
+    const oldLng = this.lng;
+    const search = location.search;
+    const params = new URLSearchParams(search);
+    this.lat = parseFloat(params.get("lat"));
+    this.lng = parseFloat(params.get("lng"));
+
     // debugger;
+    if (this.lat && (this.lat !== oldLat || this.lng !== oldLng)) {
+      this.map.setCenter({ lat: this.lat, lng: this.lng });
+    }
     this.MarkerManager.updateMarkers(homes);
-    this.map.setCenter({ lat: center.lat, lng: center.lng });
   }
 
   render() {
