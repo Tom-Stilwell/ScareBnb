@@ -1,4 +1,5 @@
 import React from "react";
+import RentalRequestForm from "./rental_request_form";
 
 class HomeShow extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class HomeShow extends React.Component {
       return <div>...LOADING...</div>;
     }
 
+    // debugger;
     const title = home.title;
     const price = home.price;
     const beds = home.beds;
@@ -25,6 +27,8 @@ class HomeShow extends React.Component {
     const occupancy = home.occupancy;
     const image_url = home.image_url;
     const lat = home.lat;
+    const description = home.description;
+    const rentals = this.props.rentals;
 
     return (
       <div className="home-show-page">
@@ -42,14 +46,33 @@ class HomeShow extends React.Component {
           <div className="icon-section">
             <div className="icon">
               <i className="material-icons">people</i>
-              <span>{occupancy} guests</span>
+              <span>
+                {occupancy} guest{occupancy > 1 ? "s" : ""}
+              </span>
             </div>
             <div className="icon">
               <i className="material-icons">hotel</i>
-              <span>{beds} beds</span>
+              <span>
+                {beds} bed{beds > 1 ? "s" : ""}
+              </span>
+            </div>
+            <div className="icon">
+              <i className="material-icons">spa</i>
+              <span>
+                {baths} bath{baths > 1 ? "s" : ""}
+              </span>
             </div>
           </div>
+          <div className="description">{description}</div>
+          <div className="contact-host">Contact host</div>
         </div>
+        <RentalRequestForm
+          price={price}
+          createRentalRequest={this.props.createRentalRequest}
+          rentals={rentals}
+          currentUser={this.props.currentUser}
+          homeId={home.id}
+        />
       </div>
     );
   }

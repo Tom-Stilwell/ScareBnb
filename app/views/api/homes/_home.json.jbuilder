@@ -1,6 +1,6 @@
 
 json.home do
-  json.extract! home, :id, :title, :lat, :lng, :price, :occupancy, :beds, :image_url
+  json.merge! home.attributes
   json.rental_ids home.rentals.pluck(:id)
 end
 

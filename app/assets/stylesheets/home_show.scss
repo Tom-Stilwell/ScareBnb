@@ -40,40 +40,46 @@
 }
 
 .home-show-info {
-  width: 800px;
-  margin-left: 500px;
+  width: 600px;
+  margin-left: 20%;
   margin-top: 30px;
-  height: 1000px;
+  height: auto;
   position: relative;
+  border-bottom: 1px solid lightgrey;
+}
+
+.info-header {
+  display: block;
 }
 
 .info-space {
   font-size: 12px;
   font-weight: 600;
+  display: block;
 }
 
 .info-title {
   font-size: 32px;
   font-weight: 600;
   color: #404040;
+  display: block;
 }
 
 .info-location {
   margin-top: 6px;
+  display: block;
 }
 
 .icon-section {
-  position: absolute;
-  top: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  font-size: 16px;
+  margin-top: 14px;
 }
 
 .icon {
   line-height: 24px;
   vertical-align: center;
-  display: flex;
-  justify-content: space-between;
   width: auto;
   margin-right: 24px;
 }
@@ -82,4 +88,68 @@
   line-height: 1em;
   vertical-align: center;
   margin-left: 8px;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 18px;
+}
+
+.contact-host {
+  width: 100%;
+  color: #239090;
+  font-size: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.contact-host:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rental-form-box {
+  position: fixed;
+  right: 15%;
+  bottom: 8%;
+  z-index: 500;
+  width: 375px;
+  height: 250px;
+  border: 1px solid lightgrey;
+  background-color: #ffffff;
+}
+
+.rental-form-header {
+  height: 50px;
+  margin: 20px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+}
+
+.rental-form-price {
+  font-weight: 600;
+  font-size: 20px;
+  color: #404040;
+}
+
+.rental-form-input-headers {
+  margin: 20px;
+  margin-right: 80px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.dates-div {
+  margin: 10px 20px;
+  width: 55%;
+}
+
+.check-in,
+.check-out {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
 }

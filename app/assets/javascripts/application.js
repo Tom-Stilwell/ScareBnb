@@ -17,3 +17,4 @@
 //= require jquery_ujs
 //= require jquery-ui/widget
 //= require jquery-ui/widgets/slider
+//= require jquery-ui/widgets/datepicker

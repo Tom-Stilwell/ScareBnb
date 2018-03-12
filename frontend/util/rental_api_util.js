@@ -10,10 +10,10 @@ export const fetchUserRentals = userId =>
     url: `/api/users/${userId}/rentals`
   });
 
-export const createRentalRequest = rental =>
+export const createRentalRequest = (homeId, rental) =>
   $.ajax({
     type: "POST",
-    url: "/api/rentals",
+    url: `/api/homes/${homeId}/createRental`,
     data: { rental }
   });
 

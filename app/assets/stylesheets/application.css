@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui/slider
+  *= require jquery-ui/datepicker
  */
 
 html,

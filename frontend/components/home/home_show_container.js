@@ -8,15 +8,18 @@ import { createRentalRequest } from "../../actions/rental_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const home = state.entities.homes[ownProps.match.params.id];
+
   return {
     home,
-    rentals: selectRentals(state, home)
+    rentals: selectRentals(state, home),
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchHome: homeId => dispatch(fetchHome(homeId)),
-  createRentalRequest: rental => dispatch(createRentalRequest(rental))
+  createRentalRequest: (homeId, rental) =>
+    dispatch(createRentalRequest(homeId, rental))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeShow);
