@@ -7,12 +7,11 @@ import {
 
 const homesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-
   switch (action.type) {
     case RECEIVE_HOMES:
       return merge({}, action.homes);
     case RECEIVE_HOME:
-      return merge({}, oldState, { [action.home.id]: action.home });
+      return merge({}, oldState, { [action.home.home.id]: action.home.home });
     case REMOVE_HOME:
       const tempState = merge({}, oldState);
       delete tempState[action.homeId];

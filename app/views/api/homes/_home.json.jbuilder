@@ -1,5 +1,8 @@
-json.extract! home, :id, :title, :lat, :lng, :price, :occupancy, :beds, :image_url
-json.rental_ids home.rentals.pluck(:id)
+
+json.home do
+  json.extract! home, :id, :title, :lat, :lng, :price, :occupancy, :beds, :image_url
+  json.rental_ids home.rentals.pluck(:id)
+end
 
 json.rentals do
   home.rentals.each do |rental|

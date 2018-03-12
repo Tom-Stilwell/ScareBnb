@@ -1,5 +1,5 @@
 import * as RentalApiUtil from "../util/rental_api_util";
-import { receiveRentalErrors } from "./error_actions";
+// import { receiveRentalErrors } from "./error_actions";
 
 // export const RECEIVE_RENTAL = "RECEIVE_RENTAL";
 export const RECEIVE_RENTALS = "RECEIVE_RENTALS";
@@ -26,8 +26,8 @@ export const fetchHomeRentals = homeId => dispatch =>
   );
 
 export const createRentalRequest = rental => dispatch =>
-  RentalApiUtil.createRentalRequest(rental).then(rental =>
-    dispatch(receiveRental(rental))
+  RentalApiUtil.createRentalRequest(rental).then(response =>
+    dispatch(receiveHome(response))
   );
 
 export const destroyRental = rentalId => dispatch =>

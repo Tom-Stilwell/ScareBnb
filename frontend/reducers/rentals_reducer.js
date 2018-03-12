@@ -6,8 +6,8 @@ const rentalsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_HOME:
-      debugger;
-      return merge({}, oldState, { rentals: action.home.rentals });
+      // debugger;
+      return merge({}, oldState, action.home.rentals);
     default:
       return oldState;
   }

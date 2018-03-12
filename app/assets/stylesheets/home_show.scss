@@ -1,0 +1,85 @@
+.home-show-page {
+  position: fixed;
+  top: 81px;
+  width: 100%;
+}
+
+.home-show-image-container {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-gradient {
+  height: 500px;
+  width: 29%;
+  margin: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255, 128, 128, 0),
+    rgba(255, 128, 128, 1)
+  );
+}
+
+.right-gradient {
+  height: 500px;
+  width: 29%;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 128, 128, 0),
+    rgba(255, 128, 128, 1)
+  );
+}
+
+.home-show-image {
+  height: 500px;
+  width: 750px;
+  border-radius: 6px;
+}
+
+.home-show-info {
+  width: 800px;
+  margin-left: 500px;
+  margin-top: 30px;
+  height: 1000px;
+  position: relative;
+}
+
+.info-space {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.info-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #404040;
+}
+
+.info-location {
+  margin-top: 6px;
+}
+
+.icon-section {
+  position: absolute;
+  top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  line-height: 24px;
+  vertical-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin-right: 24px;
+}
+
+.icon span {
+  line-height: 1em;
+  vertical-align: center;
+  margin-left: 8px;
+}
