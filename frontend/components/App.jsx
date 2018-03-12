@@ -15,7 +15,7 @@ const App = () => (
       <Route exact path="/homes" component={HomeSearch} />
       <Route path="/" component={MainSplash} />
     </Switch>
-    <NavBar />
+    <Route path="/" component={NavBar} />
   </main>
 );
 

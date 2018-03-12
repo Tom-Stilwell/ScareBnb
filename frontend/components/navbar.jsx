@@ -1,10 +1,11 @@
 import React from "react";
 import Modal from "./modal";
 import ghost from "../../app/assets/images/ghost.png";
+import { withRouter } from "react-router-dom";
 import AuthRightNavBar from "./auth_right_navbar";
 import ProtectedRightNavBar from "./protected_right_navbar";
 import SearchBar from "./search_bar";
-
+import { NotRoot } from "../util/route_util";
 // console.log(ghost);
 
 class NavBar extends React.Component {
@@ -19,8 +20,9 @@ class NavBar extends React.Component {
     };
   }
 
+
   render() {
-    // debugger;
+    // debugger
     return (
       <div className="navbar">
         <div className="logo">
@@ -28,7 +30,8 @@ class NavBar extends React.Component {
             <img src={ghost} alt={"ghost"} height="40px" width="40px" />
           </a>
         </div>
-        <SearchBar />
+
+        <NotRoot exact={this.props.match.isExact} path={this.props.match.path} component={SearchBar} />
 
         {this.props.currentUser ? (
           <ProtectedRightNavBar showDropdown={this.props.showDropdown} />
@@ -40,4 +43,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -10,6 +10,11 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     primary_key: :id
 
+  has_many :home_rental_requests,
+    class_name: "HomeRentalRequest",
+    foreign_key: :user_id,
+    primary_key: :id,
+    dependent: :destroy
 
 
   attr_reader :password

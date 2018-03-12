@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309184946) do
+ActiveRecord::Schema.define(version: 20180312134600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "home_rental_requests", force: :cascade do |t|
+    t.integer "home_id", null: false
+    t.integer "user_id", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.string "status", default: "PENDING", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["end_date"], name: "index_home_rental_requests_on_end_date"
+    t.index ["home_id"], name: "index_home_rental_requests_on_home_id"
+    t.index ["start_date"], name: "index_home_rental_requests_on_start_date"
+    t.index ["user_id"], name: "index_home_rental_requests_on_user_id"
+  end
 
   create_table "homes", force: :cascade do |t|
     t.integer "host_id", null: false

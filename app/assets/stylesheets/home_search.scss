@@ -31,8 +31,8 @@
 .index-page {
   height: 100%;
   width: 66.67%;
-  margin-right: 625px;
-  padding-left: 10px;
+  margin-right: 650px;
+  padding-left: 18px;
 }
 
 .home-index-div {
@@ -43,7 +43,7 @@
   display: grid;
 
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 14px;
 }
 
 @media (max-width: 950px) {

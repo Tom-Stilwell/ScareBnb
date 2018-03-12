@@ -6,6 +6,12 @@ class Home < ApplicationRecord
     foreign_key: :host_id,
     primary_key: :id
 
+  has_many :rentals,
+    class_name: "HomeRentalRequest",
+    foreign_key: :home_id,
+    primary_key: :id,
+    dependent: :destroy
+
   def self.in_bounds(bounds)
     # debugger
     splitSouth = bounds["southWest"][1...-1].split(", ")

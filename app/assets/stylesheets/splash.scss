@@ -140,9 +140,16 @@
   //   opacity: 0;
   // }
   95% {
-    opacity: 0
+    opacity: 0;
   }
   100% {
     opacity: 1;
   }
+}
+
+.splash-search {
+  position: absolute;
+  left: 340px;
+  top: 470px;
+  z-index: 100;
 }

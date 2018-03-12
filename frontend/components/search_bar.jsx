@@ -40,12 +40,11 @@ class SearchBar extends React.Component {
         this.props.history.push(`/homes?lat=${lat}&lng=${lng}`);
       }
     });
-    // this.props.history.push("/homes");
   }
 
   render() {
     let closer;
-
+    let className = "search-bar";
     if (this.state.search.length > 0) {
       closer = (
         <div className="closer" onClick={this.handleClear}>
@@ -54,8 +53,10 @@ class SearchBar extends React.Component {
       );
     }
 
+    // debugger
+
     return (
-      <div className="search-bar" onSubmit={this.handleSubmit}>
+      <div className={className} onSubmit={this.handleSubmit}>
         <div className="magnifying-glass-div">
           <i className="material-icons magnifying-glass">search</i>
         </div>
