@@ -18,7 +18,7 @@
 
 #main-splash img.bottom {
   height: 800px;
-  width: 1920px;
+  width: 100%;
   bottom: 0;
   left: 0;
 }
@@ -63,14 +63,14 @@
 
 #main-splash img.splash-img {
   animation-name: cfFadeInOut;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-duration: 50s;
   animation-direction: normal;
   -webkit-animation-name: cfFadeInOut;
-  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 50s;
+  -webkit-animation-duration: 60s;
   -webkit-animation-direction: normal;
 }
 
@@ -82,12 +82,12 @@
 #main-splash img.second {
   z-index: 2;
   animation-delay: 12.5s;
-  -webkit-animation-delay: 12.5s;
+  -webkit-animation-delay: 12.6s;
 }
 #main-splash img.third {
   z-index: 1;
   animation-delay: 25s;
-  -webkit-animation-delay: 25s;
+  -webkit-animation-delay: 25.2s;
 }
 
 #main-splash img.bottom {
@@ -107,31 +107,42 @@
   animation-name: splashTextFade;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  animation-duration: 50s;
-  animation-delay: 37.5s;
+  animation-duration: 60s;
+  // animation-delay: 37.5s;
   animation-direction: normal;
   -webkit-animation-name: splashTextFade;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-delay: 37.5s;
-  -webkit-animation-duration: 50s;
+  // -webkit-animation-delay: 37.5s;
+  -webkit-animation-duration: 60s;
   -webkit-animation-direction: normal;
 }
 
 @-webkit-keyframes splashTextFade {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   20% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+    color: white;
+    -webkit-transform: translateY(0px);
+  }
+  70% {
     opacity: 0;
+    color: red;
+    -webkit-transform: translateY(100px);
   }
-  25% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
+  // 75% {
+  //   opacity: 0;
+  // }
+  95% {
+    opacity: 0
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }

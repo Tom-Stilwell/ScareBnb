@@ -46,14 +46,12 @@ class SearchBar extends React.Component {
   render() {
     let closer;
 
-    {
-      if (this.state.search.length > 0) {
-        closer = (
-          <div className="closer" onClick={this.handleClear}>
-            x
-          </div>
-        );
-      }
+    if (this.state.search.length > 0) {
+      closer = (
+        <div className="closer" onClick={this.handleClear}>
+          x
+        </div>
+      );
     }
 
     return (
