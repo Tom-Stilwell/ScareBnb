@@ -75,6 +75,7 @@ class HomeShow extends React.Component {
           rentals={rentals}
           currentUser={this.props.currentUser}
           homeId={home.id}
+          occupancy={occupancy}
           showModal={this.props.showModal}
         />
       </div>

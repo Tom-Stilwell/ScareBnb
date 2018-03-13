@@ -11,29 +11,29 @@
   justify-content: space-between;
   position: relative;
 }
+//
+// .left-gradient {
+//   height: 500px;
+//   width: 29%;
+//   margin: 0;
+// background: linear-gradient(
+//   to left,
+//   rgba(255, 128, 128, 0),
+//   rgba(255, 128, 128, 1)
+// );
+// background-image: url("/images/Trees");
+// }
 
-.left-gradient {
-  height: 500px;
-  width: 29%;
-  margin: 0;
-  // background: linear-gradient(
-  //   to left,
-  //   rgba(255, 128, 128, 0),
-  //   rgba(255, 128, 128, 1)
-  // );
-  // background-image: url("/images/Trees");
-}
-
-.right-gradient {
-  height: 500px;
-  width: 29%;
-  margin: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 128, 128, 0),
-    rgba(255, 128, 128, 1)
-  );
-}
+// .right-gradient {
+//   height: 500px;
+//   width: 29%;
+//   margin: 0;
+//   background: linear-gradient(
+//     to right,
+//     rgba(255, 128, 128, 0),
+//     rgba(255, 128, 128, 1)
+//   );
+// }
 
 .trees {
   position: absolute;
@@ -134,7 +134,7 @@
   top: 521px;
   z-index: 50;
   width: 375px;
-  height: 250px;
+  height: 400px;
   border: 1px solid lightgrey;
   background-color: #ffffff;
 }
@@ -153,22 +153,179 @@
 }
 
 .rental-form-input-headers {
-  margin: 20px;
+  margin: 10px 20px 10px 20px;
   margin-right: 80px;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
 }
 
-.dates-div {
-  margin: 10px 20px;
-  width: 55%;
+.dates-div,
+.guests-div {
+  margin: 10px 20px 20px 20px;
+  width: 85%;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  position: relative;
+  height: 34px;
+}
+
+.date-input {
+  width: 100%;
+  display: inline;
+  margin: 8px;
+}
+
+.date-input > input {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 1px 0 1px 1px;
+}
+
+.date-input > input:focus {
+  background-color: #99ffff;
+  color: #004080;
+  border-radius: 4px;
+}
+
+.arrow {
+  float: left;
+  height: 100%;
+}
+
+.arrow i.material-icons {
+  margin: 5px;
 }
 
 .check-in,
 .check-out {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 36%;
   font-size: 14px;
+  margin-left: 6px;
+  float: left;
+}
+
+.DayPicker-wrapper {
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  box-shadow: 0px 1px 5px 0px rgba(212, 212, 212, 1);
+  position: absolute;
+  top: 10px;
+  z-index: 100;
+}
+
+.guests-value {
+  width: 80%;
+  padding: 6px;
+  font-size: 16px;
+  margin-left: 6px;
+  float: left;
+}
+
+.guests-value:focus {
+  background-color: blue;
+}
+
+.everything-but-guests-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 102;
+}
+
+.guests-form {
+  z-index: 500;
+  width: 350px;
+  height: 200px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px 0px rgba(212, 212, 212, 1);
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  position: absolute;
+  right: 45%;
+  bottom: 0px;
+}
+
+.guests-form-content {
+  padding: 30px 16px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+  vertical-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.guests-form-plus,
+.guests-form-minus {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #1e7b7b;
+  border-radius: 17px;
+  text-align: center;
+  vertical-align: center;
+  margin: 0 18px;
+}
+
+.guests-form-plus:hover,
+.guests-form-minus:hover {
+  cursor: pointer;
+}
+
+.guests-form-plus:active,
+.guests-form-minus:active {
+  box-shadow: 0px 0px 8px 0px #239090;
+}
+
+.guests-form-text {
+  padding-right: 100px;
+}
+
+.guests-form-adults {
+  width: 100%;
+  display: flex;
+}
+
+.guests-form-apply-clear {
+  position: absolute;
+  bottom: 10px;
+  font-size: 16px;
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.guests-form-close {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 16px;
+  width: auto;
+  color: #239090;
+}
+
+.guests-form-close:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rental-button {
+  width: 86%;
+  margin: 16px 19px;
+  background-color: #ff6666;
+  color: #ffffff;
+  line-height: 22px;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 4px;
+}
+
+.rental-button:hover {
+  cursor: pointer;
 }

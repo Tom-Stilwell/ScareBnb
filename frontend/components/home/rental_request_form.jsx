@@ -4,11 +4,14 @@ import DayPickerInput from "react-day-picker/DayPickerInput";
 class RentalRequestForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { startDate: "", endDate: "", guests: 0 };
+    this.state = { startDate: "", endDate: "", guests: 1, guestFocused: false };
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getDates = this.getDates.bind(this);
     this.disabledDays = this.disabledDays.bind(this);
+    this.toggleGuests = this.toggleGuests.bind(this);
+    this.handlePlus = this.handlePlus.bind(this);
+    this.handleMinus = this.handleMinus.bind(this);
   }
 
   getDates(startDate, endDate) {
@@ -31,7 +34,7 @@ class RentalRequestForm extends React.Component {
 
   disabledDays() {
     let dates = [];
-    // debugger
+    // debugger;
     const rentals = this.props.rentals;
     rentals.forEach(rental => {
       dates = dates.concat(
@@ -50,6 +53,26 @@ class RentalRequestForm extends React.Component {
     };
   }
 
+  toggleGuests(boolean) {
+    return e => {
+      e.stopPropagation();
+      this.setState({ guestFocused: boolean });
+    };
+  }
+
+  handlePlus() {
+    const guests =
+      this.state.guests < this.props.occupancy
+        ? this.state.guests + 1
+        : this.state.guests;
+    this.setState({ guests });
+  }
+
+  handleMinus() {
+    const guests = this.state.guests > 1 ? this.state.guests - 1 : 1;
+    this.setState({ guests });
+  }
+
   handleSubmit() {
     if (!this.props.currentUser) {
       this.props.showModal("login");
@@ -59,15 +82,59 @@ class RentalRequestForm extends React.Component {
         end_date: this.state.endDate,
         user_id: this.props.currentUser.id
       });
+      debugger;
     }
   }
 
   render() {
     const price = this.props.price;
     const past = { before: new Date() };
+    const afterEnd = this.state.endDate
+      ? { after: new Date(this.state.endDate) }
+      : null;
+    const beforeBegin = this.state.startDate
+      ? { before: new Date(this.state.startDate) }
+      : null;
     const unavailable = this.disabledDays();
+    // debugger;
+
     unavailable.push(past);
-    debugger;
+
+    const unavailableStart = unavailable.slice();
+    const unavailableEnd = unavailable.slice();
+    unavailableStart.push(afterEnd);
+    unavailableEnd.push(beforeBegin);
+    // debugger;
+
+    let guestForm = this.state.guestFocused ? (
+      <div
+        className="everything-but-guests-form"
+        onClick={this.toggleGuests(false)}
+      >
+        <div className="guests-form" onClick={e => e.stopPropagation()}>
+          <div className="guests-form-content">
+            <div className="guests-form-adults">
+              <div className="guests-form-text">Adults</div>
+              <div className="guests-form-minus" onClick={this.handleMinus}>
+                -
+              </div>
+
+              <div className="guests-form-value">{this.state.guests}</div>
+              <div className="guests-form-plus" onClick={this.handlePlus}>
+                +
+              </div>
+            </div>
+            <div
+              className="guests-form-close"
+              onClick={this.toggleGuests(false)}
+            >
+              Close
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : null;
+
     return (
       <div className="rental-form-box">
         <div className="rental-form-header">
@@ -79,30 +146,50 @@ class RentalRequestForm extends React.Component {
         </div>
         <div className="rental-form-input-headers">
           <span>Dates</span>
-          <span>Guests</span>
         </div>
-
         <div className="dates-div">
-          <div className="check-in">
-            Check In:
+          <span className="check-in">
             <DayPickerInput
               onDayChange={this.updateField("startDate")}
+              classNames={{
+                container: "date-input",
+                overlayWrapper: "calendar-wrapper",
+                overlay: "calendar"
+              }}
+              placeholder="Check In"
               dayPickerProps={{
                 selectedDay: this.state.startDate,
-                disabledDays: unavailable
+                disabledDays: unavailableStart
               }}
             />
-          </div>
-          <div className="check-out">
-            Check Out:
+          </span>
+          <span className="arrow">
+            <i className="material-icons">trending_flat</i>
+          </span>
+          <span className="check-out">
             <DayPickerInput
               onDayChange={this.updateField("endDate")}
+              classNames={{
+                container: "date-input",
+                overlayWrapper: "calendar-wrapper",
+                overlay: "calendar"
+              }}
+              placeholder="Check Out"
               dayPickerProps={{
                 selectedDay: this.state.startDate,
-                disabledDays: unavailable
+                disabledDays: unavailableEnd
               }}
             />
+          </span>
+        </div>
+        <div className="rental-form-input-headers">
+          <span>Guests</span>
+        </div>
+        <div className="guests-div">
+          <div onClick={this.toggleGuests(true)} className="guests-value">
+            {this.state.guests} guest{this.state.guests > 1 ? "s" : null}
           </div>
+          {guestForm}
         </div>
         <div className="rental-button-div">
           <button className="rental-button" onClick={this.handleSubmit}>
