@@ -1,10 +1,11 @@
 import React from "react";
 import { hideModal } from "../actions/modal_actions";
 import { connect } from "react-redux";
-import LoginFormContainer from "./session/login_form_container.jsx";
-import SignupFormContainer from "./session/signup_form_container.jsx";
+import LoginFormContainer from "./session/login_form_container";
+import SignupFormContainer from "./session/signup_form_container";
+import ReservationConfirmation from "./reservation_confirmation";
 
-function Modal({ modal, hideModal }) {
+function Modal({ modal, hideModal, currentUser }) {
   if (!modal) {
     return null;
   }
@@ -15,6 +16,9 @@ function Modal({ modal, hideModal }) {
       break;
     case "signup":
       component = <SignupFormContainer />;
+      break;
+    case "reserve":
+      component = <ReservationConfirmation currentUser={currentUser} />;
       break;
     default:
       return null;
@@ -30,7 +34,8 @@ function Modal({ modal, hideModal }) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    currentUser: state.session.currentUser
   };
 };
 

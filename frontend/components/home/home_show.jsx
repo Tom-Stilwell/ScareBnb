@@ -34,7 +34,7 @@ class HomeShow extends React.Component {
     return (
       <div className="home-show-page">
         <div className="home-show-image-container">
-          <img className="trees" src={trees} />
+          <div className="trees" />
           <div
             className="home-show-image"
             style={{ backgroundImage: "url(" + imageUrl + ")" }}
@@ -77,6 +77,7 @@ class HomeShow extends React.Component {
           homeId={home.id}
           occupancy={occupancy}
           showModal={this.props.showModal}
+          rentalErrors={this.props.rentalErrors}
         />
       </div>
     );

@@ -10,6 +10,10 @@ const defaultState = {
   price: {
     minPrice: 0,
     maxPrice: 1000
+  },
+  dates: {
+    startDate: "",
+    endDate: ""
   }
 };
 

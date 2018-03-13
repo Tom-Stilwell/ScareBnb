@@ -10,6 +10,16 @@ class Api::HomesController < ApplicationController
     if price_range = params[:price]
       @homes = @homes.select {|home| home.price.between?(params[:price][:minPrice].to_i, params[:price][:maxPrice].to_i)}
     end
+    start_date = params[:dates][:startDate]
+    end_date = params[:dates][:endDate]
+
+    if start_date.length > 0 && end_date.length > 0
+      @homes = @homes.select do |home|
+        rental = HomeRentalRequest.new(start_date: start_date, end_date: end_date, home_id: home.id)
+        result = rental.dates_filter_checker;
+        result
+      end
+    end
 
   end
 
@@ -72,13 +82,18 @@ class Api::HomesController < ApplicationController
 
 
   def create_rental
-    permitted = rental_params
-    permitted[:home_id] = params[:home_id]
-    @rental = HomeRentalRequest.new(permitted)
-    if @rental.save
-      render json: {id: @rental.id, home_id: @rental.home_id, user_id: @rental.user_id}, status: 200
+    if params[:rental][:start_date] == "" || params[:rental][:end_date] == ""
+      render json: {errors:["Date can't be blank!"]}, status: 422
     else
-      render json: {errors: @rental.errors.full_messages}, status: 422
+      permitted = rental_params
+      permitted[:home_id] = params[:home_id]
+      @rental = HomeRentalRequest.new(permitted)
+
+      if @rental.save
+        render json: {id: @rental.id, home_id: @rental.home_id, start_date: @rental.start_date, end_date: @rental.end_date}, status: 200
+      else
+        render json: {errors: @rental.errors.full_messages}, status: 422
+      end
     end
   end
 

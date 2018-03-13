@@ -43,6 +43,44 @@
   color: #ffffff;
 }
 
+.dates-filter {
+  z-index: 500;
+  width: 350px;
+  height: 100px;
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  position: absolute;
+  top: 147px;
+  left: 50px;
+}
+
+.dates-filter-apply-clear {
+  position: absolute;
+  bottom: 10px;
+  font-size: 16px;
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dates-filter-apply {
+  margin-left: 280px;
+  color: #239090;
+}
+
+.dates-filter-clear {
+  margin-left: 12px;
+  position: absolute;
+  left: 10px;
+}
+
+.dates-filter-clear:hover,
+.dates-filter-apply:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .guests-filter {
   z-index: 500;
   width: 350px;

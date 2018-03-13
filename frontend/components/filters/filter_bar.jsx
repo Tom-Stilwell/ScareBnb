@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateFilter } from "../../actions/filter_actions";
 import GuestsFilter from "./guests_filter";
 import PriceFilter from "./price_filter";
+import DatesFilter from "./dates_filter";
 
 class FilterBar extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class FilterBar extends React.Component {
       price = "Price";
     }
 
-    const dates = "Dates";
+    let dates = "Dates";
 
     this.setState({ minGuests, price, dates });
   }
@@ -73,15 +74,26 @@ class FilterBar extends React.Component {
           maxPrice={this.props.filters.price.maxPrice}
         />
       );
+    } else if (this.state.box === "Dates") {
+      component = (
+        <DatesFilter
+          updateFilter={this.props.updateFilter}
+          hideBox={this.hideBox}
+          startDate={this.props.filters.dates.startDate}
+          endDate={this.props.filters.dates.endDate}
+        />
+      );
     }
-
+    // debugger;
     return (
       <div onClick={this.hideBox}>
         <div className="filter-bar">
           <div
             onClick={this.handleClick("Dates")}
             className={
-              this.state.box === "Dates"
+              this.state.box === "Dates" ||
+              this.props.filters.dates.startDate !== "" ||
+              this.props.filters.dates.endDate !== ""
                 ? "filter-button selected"
                 : "filter-button"
             }

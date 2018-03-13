@@ -4,7 +4,12 @@ import DayPickerInput from "react-day-picker/DayPickerInput";
 class RentalRequestForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { startDate: "", endDate: "", guests: 1, guestFocused: false };
+    this.state = {
+      startDate: "",
+      endDate: "",
+      guests: 1,
+      guestFocused: false
+    };
     this.updateField = this.updateField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getDates = this.getDates.bind(this);
@@ -77,16 +82,28 @@ class RentalRequestForm extends React.Component {
     if (!this.props.currentUser) {
       this.props.showModal("login");
     } else {
-      this.props.createRentalRequest(this.props.homeId, {
-        start_date: this.state.startDate,
-        end_date: this.state.endDate,
-        user_id: this.props.currentUser.id
-      });
-      debugger;
+      this.props
+        .createRentalRequest(this.props.homeId, {
+          start_date: this.state.startDate,
+          end_date: this.state.endDate,
+          user_id: this.props.currentUser.id
+        })
+        .then(() => {
+          if (Object.values(this.props.rentalErrors).length < 1) {
+            this.setState({
+              startDate: "",
+              endDate: "",
+              guests: 1,
+              guestFocused: false
+            });
+            this.props.showModal("reserve");
+          }
+        });
     }
   }
 
   render() {
+    // debugger;
     const price = this.props.price;
     const past = { before: new Date() };
     const afterEnd = this.state.endDate
@@ -135,9 +152,16 @@ class RentalRequestForm extends React.Component {
       </div>
     ) : null;
 
+    let errors = Object.values(this.props.rentalErrors);
+    if (errors.length > 0) {
+      // debugger;
+      errors = errors.join(" AND ");
+    }
+
     return (
       <div className="rental-form-box">
         <div className="rental-form-header">
+          <div className="rental-form-errors">{errors}</div>
           <div>
             <span className="rental-form-price">${price}</span>
             <span> per night</span>
@@ -150,6 +174,7 @@ class RentalRequestForm extends React.Component {
         <div className="dates-div">
           <span className="check-in">
             <DayPickerInput
+              value={this.state.startDate}
               onDayChange={this.updateField("startDate")}
               classNames={{
                 container: "date-input",
@@ -168,6 +193,7 @@ class RentalRequestForm extends React.Component {
           </span>
           <span className="check-out">
             <DayPickerInput
+              value={this.state.endDate}
               onDayChange={this.updateField("endDate")}
               classNames={{
                 container: "date-input",

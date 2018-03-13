@@ -63,11 +63,11 @@ class PriceFilter extends React.Component {
 
             <div id="price-slider" />
           </div>
-          <div className="guests-filter-apply-clear">
+          <div className="price-filter-apply-clear">
             <div className="price-filter-clear" onClick={this.handleClear}>
               Clear
             </div>
-            <div className="guests-filter-apply" onClick={this.handleApply}>
+            <div className="price-filter-apply" onClick={this.handleApply}>
               Apply
             </div>
           </div>

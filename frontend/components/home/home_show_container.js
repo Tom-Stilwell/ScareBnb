@@ -9,11 +9,11 @@ import { showModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const home = state.entities.homes[ownProps.match.params.id];
-
   return {
     home,
     rentals: selectRentals(state, home),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    rentalErrors: state.errors.rental
   };
 };
 

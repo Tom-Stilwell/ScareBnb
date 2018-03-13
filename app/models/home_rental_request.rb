@@ -46,6 +46,11 @@ class HomeRentalRequest < ApplicationRecord
     self.status == 'PENDING'
   end
 
+  def dates_filter_checker
+    return false if self.denied? || !overlapping_approved_requests.empty?
+    true
+  end
+
   private
 
   def ensure_approved
