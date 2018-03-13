@@ -1,26 +1,6 @@
 class Api::HomesController < ApplicationController
   def index
-    # debugger
-    @homes = Home.in_bounds(params[:bounds])
-
-    if min_guests = params[:minGuests]
-      @homes = @homes.select {|home| home.occupancy >= min_guests.to_i}
-    end
-
-    if price_range = params[:price]
-      @homes = @homes.select {|home| home.price.between?(params[:price][:minPrice].to_i, params[:price][:maxPrice].to_i)}
-    end
-    start_date = params[:dates][:startDate]
-    end_date = params[:dates][:endDate]
-
-    if start_date.length > 0 && end_date.length > 0
-      @homes = @homes.select do |home|
-        rental = HomeRentalRequest.new(start_date: start_date, end_date: end_date, home_id: home.id)
-        result = rental.dates_filter_checker;
-        result
-      end
-    end
-
+    @homes = Home.filter(filter_params)
   end
 
   def create
@@ -118,5 +98,9 @@ class Api::HomesController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:user_id, :id, :start_date, :end_date, :home_id)
+  end
+
+  def filter_params
+    params.require(:filters).permit(:minGuests, bounds: [:northEast, :southWest], price: [:minPrice, :maxPrice], dates: [:startDate, :endDate])
   end
 end

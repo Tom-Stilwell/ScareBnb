@@ -52,6 +52,18 @@ class RentalRequestForm extends React.Component {
     return dates;
   }
 
+  parseDate(date) {
+    if (date === "") {
+      return date;
+    }
+    let parsed = "";
+    let stringDate = date.toString();
+    let arrDate = stringDate.split(" ");
+
+    parsed += arrDate[1] + " " + arrDate[2];
+    return parsed;
+  }
+
   updateField(field) {
     return e => {
       this.setState({ [field]: e });
@@ -174,7 +186,7 @@ class RentalRequestForm extends React.Component {
         <div className="dates-div">
           <span className="check-in">
             <DayPickerInput
-              value={this.state.startDate}
+              value={this.parseDate(this.state.startDate)}
               onDayChange={this.updateField("startDate")}
               classNames={{
                 container: "date-input",
@@ -193,7 +205,7 @@ class RentalRequestForm extends React.Component {
           </span>
           <span className="check-out">
             <DayPickerInput
-              value={this.state.endDate}
+              value={this.parseDate(this.state.endDate)}
               onDayChange={this.updateField("endDate")}
               classNames={{
                 container: "date-input",

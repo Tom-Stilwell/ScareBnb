@@ -12,17 +12,32 @@ class Home < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
 
-  def self.in_bounds(bounds)
-    # debugger
-    splitSouth = bounds["southWest"][1...-1].split(", ")
-    splitNorth = bounds["northEast"][1...-1].split(", ")
+  def self.filter(filters)
+    splitSouth = filters[:bounds]["southWest"][1...-1].split(", ")
+    splitNorth = filters[:bounds]["northEast"][1...-1].split(", ")
 
     minLat = splitSouth.first
     minLng = splitSouth.last
     maxLat = splitNorth.first
     maxLng = splitNorth.last
 
-    selected = Home.where("lat < ?", maxLat).where("lat > ?", minLat).where("lng < ?", maxLng).where("lng > ?", minLng).limit(200); # limit for zoom outs
+    homes = Home.where(lat: minLat..maxLat, lng: minLng..maxLng)
+    .where('homes.occupancy >= ?', filters[:minGuests])
+    .where(price: filters[:price][:minPrice]..filters[:price][:maxPrice])
+    .limit(200)
+
+    start_date = filters[:dates][:startDate]
+    end_date = filters[:dates][:endDate]
+
+    if !start_date.empty? && !end_date.empty?
+      homes = homes.select do |home|
+        rental = HomeRentalRequest.new(start_date: start_date, end_date: end_date, home_id: home.id)
+        result = rental.dates_filter_checker;
+        result
+      end
+    end
+
+    homes
   end
 
 end
