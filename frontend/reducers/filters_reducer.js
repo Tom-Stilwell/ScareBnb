@@ -1,4 +1,5 @@
 import { UPDATE_FILTER } from "../actions/filter_actions";
+import { RECEIVE_HOME } from "../actions/home_actions";
 import { merge } from "lodash";
 
 const defaultState = {
@@ -21,6 +22,8 @@ const filterReducer = (oldState = defaultState, action) => {
   switch (action.type) {
     case UPDATE_FILTER:
       return merge({}, oldState, { [action.filter]: action.value });
+    case RECEIVE_HOME:
+      return defaultState;
     default:
       return oldState;
   }
