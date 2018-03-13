@@ -12,6 +12,11 @@ class Home < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
 
+  has_many :reviews,
+    class_name: "Review",
+    foreign_key: :home_id,
+    primary_key: :id
+
   def self.filter(filters)
     splitSouth = filters[:bounds]["southWest"][1...-1].split(", ")
     splitNorth = filters[:bounds]["northEast"][1...-1].split(", ")
@@ -38,6 +43,24 @@ class Home < ApplicationRecord
     end
 
     homes
+  end
+
+  def self.getReviewAverages(home_id)
+    averages = {}
+    accuracy_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:accuracy_stars)[home_id].to_f
+    communication_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:communication_stars)[home_id].to_f
+    cleanliness_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:cleanliness_stars)[home_id].to_f
+    location_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:location_stars)[home_id].to_f
+    checkin_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:checkin_stars)[home_id].to_f
+    value_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:value_stars)[home_id].to_f
+    averages[:accuracy_stars] = (accuracy_stars * 2.0).round / 2.0
+    averages[:communication_stars] = (communication_stars * 2.0).round / 2.0
+    averages[:cleanliness_stars] = (cleanliness_stars * 2.0).round / 2.0
+    averages[:location_stars] = (location_stars * 2.0).round / 2.0
+    averages[:checkin_stars] = (checkin_stars * 2.0).round / 2.0
+    averages[:value_stars] = (value_stars * 2.0).round / 2.0
+    averages[:total] = (((accuracy_stars + communication_stars + cleanliness_stars + location_stars + checkin_stars + value_stars ) / 6.0) * 2.0).round / 2.0
+    averages
   end
 
 end

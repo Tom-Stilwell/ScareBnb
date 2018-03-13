@@ -3,7 +3,7 @@
   top: 81px;
   display: block;
   height: 65px;
-  z-index: 101;
+  z-index: 50;
   border-bottom: 1px solid #e4e4e4;
   background-color: white;
   width: 100%;
@@ -16,7 +16,7 @@
   right: 0;
   left: 0;
   background: rgba(255, 255, 255, 0.7);
-  z-index: 99;
+  z-index: 49;
 }
 
 .filter-button {
@@ -51,7 +51,7 @@
   border: 1px solid lightgrey;
   border-radius: 4px;
   position: absolute;
-  top: 147px;
+  top: 146px;
   left: 50px;
 }
 
@@ -89,7 +89,7 @@
   border: 1px solid lightgrey;
   border-radius: 4px;
   position: absolute;
-  top: 147px;
+  top: 146px;
   left: 130px;
 }
 
@@ -166,7 +166,7 @@
   border: 1px solid lightgrey;
   border-radius: 4px;
   position: absolute;
-  top: 147px;
+  top: 146px;
   left: 200px;
 }
 

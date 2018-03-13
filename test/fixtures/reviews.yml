@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reviewer_id: 1
+  accuracy_stars: 1
+  communication_stars: 1
+  cleanliness_stars: 1
+  location_stars: 1
+  checkin_stars: 1
+  value_stars: 1
+  body: MyText
+  home_id: 1
+
+two:
+  reviewer_id: 1
+  accuracy_stars: 1
+  communication_stars: 1
+  cleanliness_stars: 1
+  location_stars: 1
+  checkin_stars: 1
+  value_stars: 1
+  body: MyText
+  home_id: 1

@@ -16,6 +16,11 @@ class User < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
 
+  has_many :reviews,
+    class_name: "Review",
+    foreign_key: :reviewer_id,
+    primary_key: :id
+
 
   attr_reader :password
 

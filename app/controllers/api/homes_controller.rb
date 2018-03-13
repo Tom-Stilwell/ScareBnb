@@ -89,6 +89,16 @@ class Api::HomesController < ApplicationController
     end
   end
 
+  def create_review
+    @review = Review.new(review_params)
+
+    if @review.save
+      render json: {id: @review.id, home_id: @review.home_id, user_id: @review.user_id}
+    else
+      render json: {errors: @review.errors.full_messages}, status: 422
+    end
+  end
+
 
   private
 
@@ -102,5 +112,9 @@ class Api::HomesController < ApplicationController
 
   def filter_params
     params.require(:filters).permit(:minGuests, bounds: [:northEast, :southWest], price: [:minPrice, :maxPrice], dates: [:startDate, :endDate])
+  end
+
+  def review_params
+    params.require(:review).permit(:reviewer_id, :home_id, :body, :accuracy_stars, :communication_stars, :cleanliness_stars, :location_stars, :checkin_stars, :value_stars)
   end
 end

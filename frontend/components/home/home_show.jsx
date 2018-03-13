@@ -1,6 +1,6 @@
 import React from "react";
 import RentalRequestForm from "./rental_request_form";
-import trees from "../../../app/assets/images/Trees.jpg";
+import ReviewsList from "./reviews_list";
 
 class HomeShow extends React.Component {
   constructor(props) {
@@ -30,6 +30,8 @@ class HomeShow extends React.Component {
     const lat = home.lat;
     const description = home.description;
     const rentals = this.props.rentals;
+    const stars = home.stars;
+    const reviews = this.props.reviews;
 
     return (
       <div className="home-show-page">
@@ -69,6 +71,7 @@ class HomeShow extends React.Component {
           <div className="description">{description}</div>
           <div className="contact-host">Contact host</div>
         </div>
+        <ReviewsList stars={stars} reviews={reviews} />
         <RentalRequestForm
           price={price}
           createRentalRequest={this.props.createRentalRequest}

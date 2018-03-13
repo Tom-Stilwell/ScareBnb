@@ -1,0 +1,29 @@
+.reviews {
+  margin-left: 20%;
+  width: 600px;
+}
+
+.reviews-header {
+  padding: 20px 0;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+}
+.reviews-header-length {
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 30px;
+}
+
+.reviews-stars {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 50px 50px 50px;
+}
+
+.star-cell {
+  padding: 10px 40px 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}

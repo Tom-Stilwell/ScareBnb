@@ -56,3 +56,13 @@ r4 = HomeRentalRequest.create({home_id: h2.id, user_id: u7.id, start_date: "12/0
 r5 = HomeRentalRequest.create({home_id: h2.id, user_id: u6.id, start_date: "21/03/2018", end_date: "26/03/2018"})
 r6 = HomeRentalRequest.create({home_id: h2.id, user_id: u5.id, start_date: "01/04/2018", end_date: "11/04/2018"})
 r7 = HomeRentalRequest.create({home_id: h2.id, user_id: u7.id, start_date: "12/04/2018", end_date: "14/04/2018"})
+
+HOMES = [h1, h2, h3, h4, h5, h6, h7]
+
+def randomHomeId
+  HOMES.sample[:id]
+end
+
+100.times do
+  Review.create({body: "One of the best experiences we've had. We still can't find little Timmy!", reviewer_id: randomUserId, home_id: randomHomeId, accuracy_stars: rand(0..5), communication_stars: rand(0..5), cleanliness_stars: rand(0..5), location_stars: rand(0..5), checkin_stars: rand(0..5), value_stars: rand(0..5)})
+end
