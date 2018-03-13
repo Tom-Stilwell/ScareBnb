@@ -1,5 +1,6 @@
 import React from "react";
 import RentalRequestForm from "./rental_request_form";
+import trees from "../../../app/assets/images/Trees.jpg";
 
 class HomeShow extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class HomeShow extends React.Component {
     const beds = home.beds;
     const baths = home.baths;
     const occupancy = home.occupancy;
-    const image_url = home.image_url;
+    const imageUrl = home.image_url;
     const lat = home.lat;
     const description = home.description;
     const rentals = this.props.rentals;
@@ -33,9 +34,11 @@ class HomeShow extends React.Component {
     return (
       <div className="home-show-page">
         <div className="home-show-image-container">
-          <div className="left-gradient" />
-          <img className="home-show-image" src={image_url} />
-          <div className="right-gradient" />
+          <img className="trees" src={trees} />
+          <div
+            className="home-show-image"
+            style={{ backgroundImage: "url(" + imageUrl + ")" }}
+          />
         </div>
         <div className="home-show-info">
           <div className="info-header">
@@ -72,6 +75,7 @@ class HomeShow extends React.Component {
           rentals={rentals}
           currentUser={this.props.currentUser}
           homeId={home.id}
+          showModal={this.props.showModal}
         />
       </div>
     );

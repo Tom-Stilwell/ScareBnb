@@ -7,7 +7,7 @@ import {
 
 const homesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-  debugger;
+  // debugger;
   switch (action.type) {
     case RECEIVE_HOMES:
       return merge({}, action.homes);

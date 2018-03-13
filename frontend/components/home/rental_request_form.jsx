@@ -1,91 +1,73 @@
 import React from "react";
+import DayPickerInput from "react-day-picker/DayPickerInput";
 
 class RentalRequestForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { startDate: "", endDate: "", guests: 0 };
     this.updateField = this.updateField.bind(this);
-    this.checkAvailability = this.checkAvailability.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getDates = this.getDates.bind(this);
+    this.disabledDays = this.disabledDays.bind(this);
   }
 
-  checkAvailability(date) {
-    let available = true;
-    const rentals = Object.values(this.props.rentals);
+  getDates(startDate, endDate) {
+    let dates = [],
+      currentDate = startDate,
+      addDays = function(days) {
+        let date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      };
+
+    while (currentDate <= endDate) {
+      // debugger
+      dates.push(currentDate);
+      currentDate = addDays.call(currentDate, 1);
+    }
+    // debugger
+    return dates;
+  }
+
+  disabledDays() {
+    let dates = [];
+    // debugger
+    const rentals = this.props.rentals;
     rentals.forEach(rental => {
-      if (
-        date >= new Date(rental.start_date) &&
-        date <= new Date(rental.end_date)
-      ) {
-        available = false;
-      }
+      dates = dates.concat(
+        this.getDates(
+          new Date(rental.start_date.replace(/-/g, "/").replace(/T.+/, "")),
+          new Date(rental.end_date.replace(/-/g, "/").replace(/T.+/, ""))
+        )
+      );
     });
-    // debugger;
-    return [available];
-  }
-
-  componentDidMount() {
-    $("#datepicker1").datepicker({
-      dateFormat: "M dd yy",
-      onClose: this.updateField("startDate"),
-      beforeShowDay: this.checkAvailability
-    });
-
-    $("#datepicker2").datepicker({
-      dateFormat: "M dd yy",
-      onClose: this.updateField("endDate"),
-      beforeShowDay: this.checkAvailability
-    });
-  }
-
-  componentDidUpdate() {
-    // debugger;
-    const startDate = this.state.startDate;
-    const endDate = this.state.endDate;
-
-    $("#datepicker1").datepicker("destroy");
-    $("#datepicker1").datepicker({
-      dateFormat: "M dd yy",
-      onClose: this.updateField("startDate"),
-      beforeShowDay: this.checkAvailability,
-      maxDate: endDate
-      // beforeShowDay: function(date) {
-      //   const stringDate = $.datepicker.formatDate("yy-mm-dd", date);
-      //   return [unavailable.indexOf(stringDate) == -1];
-      // }
-    });
-
-    $("#datepicker2").datepicker("destroy");
-    $("#datepicker2").datepicker({
-      dateFormat: "M dd yy",
-      onClose: this.updateField("endDate"),
-      beforeShowDay: this.checkAvailability,
-      minDate: startDate
-    });
+    return dates;
   }
 
   updateField(field) {
     return e => {
-      // debugger;
       this.setState({ [field]: e });
     };
   }
 
   handleSubmit() {
-    // debugger;
     if (!this.props.currentUser) {
-      alert("Must be logged in!");
+      this.props.showModal("login");
+    } else {
+      this.props.createRentalRequest(this.props.homeId, {
+        start_date: this.state.startDate,
+        end_date: this.state.endDate,
+        user_id: this.props.currentUser.id
+      });
     }
-    this.props.createRentalRequest(this.props.homeId, {
-      start_date: this.state.startDate,
-      end_date: this.state.endDate,
-      user_id: this.props.currentUser.id
-    });
   }
 
   render() {
     const price = this.props.price;
-    // debugger;
+    const past = { before: new Date() };
+    const unavailable = this.disabledDays();
+    unavailable.push(past);
+    debugger;
     return (
       <div className="rental-form-box">
         <div className="rental-form-header">
@@ -103,22 +85,22 @@ class RentalRequestForm extends React.Component {
         <div className="dates-div">
           <div className="check-in">
             Check In:
-            <input
-              id="datepicker1"
-              type="text"
-              value={this.state.startDate}
-              max={this.state.endDate}
-              onChange={this.updateField("startDate")}
+            <DayPickerInput
+              onDayChange={this.updateField("startDate")}
+              dayPickerProps={{
+                selectedDay: this.state.startDate,
+                disabledDays: unavailable
+              }}
             />
           </div>
           <div className="check-out">
             Check Out:
-            <input
-              id="datepicker2"
-              type="text"
-              value={this.state.endDate}
-              min={this.state.startDate}
-              onChange={this.updateField("endDate")}
+            <DayPickerInput
+              onDayChange={this.updateField("endDate")}
+              dayPickerProps={{
+                selectedDay: this.state.startDate,
+                disabledDays: unavailable
+              }}
             />
           </div>
         </div>
