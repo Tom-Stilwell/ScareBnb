@@ -1,7 +1,18 @@
+<input
+  type="text"
+  className="search-bar-input"
+  value={this.state.search}
+  placeholder="Anywhere &middot; Homes"
+  onChange={this.handleUpdate}
+  onKeyPress={this.handleSubmit}
+/>
+
+
 import React from "react";
 import { connect } from "react-redux";
 import { updateFilter } from "../actions/filter_actions";
 import { withRouter } from "react-router";
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -12,43 +23,24 @@ class SearchBar extends React.Component {
     this.handleClear = this.handleClear.bind(this);
   }
 
-  componentDidMount() {
-    const input = document.getElementById("searchInput");
-    const options = {types: ["(regions)"]};
-    const autocomplete = new google.maps.places.Autocomplete(input, options);
-
-    autocomplete.addListener("place_changed", (e) => {
-
-      if (!autocomplete.getPlace().formatted_address) {
-        this.handleSubmit(autocomplete.getPlace().name);
-      } else {
-        this.handleSubmit(autocomplete.getPlace().formatted_address);
-      }
-    });
-  }
-
-  handleUpdate(e) {
-    this.setState({ search: e.target.value });
+  handleUpdate(value) {
+    this.setState({ search: value });
   }
 
   handleClear(e) {
     this.setState({ search: "" });
   }
 
-  handleSubmit(address) {
-
+  handleSubmit(address, placeId) {
+    // debugger
+    // e.preventDefault();
     // if (e.key !== "Enter") {
     //   return;
     // }
-    debugger
+    this.setState({search: address});
     const geocoder = new google.maps.Geocoder();
-    // let address;
-
-    // if (!this.autocomplete.getPlace().formatted_address) {
-    //   address = this.autocomplete.getPlace().name;
-    // } else {
-    //   address= this.autocomplete.getPlace().formatted_address;
-    // }
+    // const address = e.target.value;
+    // debugger;
 
     geocoder.geocode({ address: address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -70,23 +62,19 @@ class SearchBar extends React.Component {
       );
     }
 
-    // debugger
+    const inputProps = {
+      value: this.state.search,
+      placeholder: "Anywhere &middot; Homes",
+      onChange: this.handleUpdate,
+    };
 
     return (
       <div className={className} onSubmit={this.handleSubmit}>
         <div className="magnifying-glass-div">
           <i className="material-icons magnifying-glass">search</i>
         </div>
-        <input
-          id="searchInput"
-          type="text"
-          className="search-bar-input"
-          value={this.state.search}
-          placeholder="Anywhere &middot; Homes"
-          onChange={this.handleUpdate}
+        <PlacesAutocomplete classNames={{input: "search-bar-input", root: "autocomplete"}} inputProps={inputProps} onSelect={this.handleSubmit}/>
 
-          autoComplete="on"
-        />
         {closer}
       </div>
     );

@@ -15,7 +15,7 @@ u1 = User.create({email: "TheBestGuest@ScareBnb.com", password: "hotstuff", birt
 u2 = User.create({email: "ThrillSeeker@spooktookular.com", password: "ghosts123", birthday: "01/02/1991", fname: "Abby", lname: "Normal"})
 u3 = User.create({email: "VincentPrice@heaven.com", password: "halloweenparty", birthday: "27/05/1911", fname: "Vinny", lname: "Price"})
 u4 = User.create({email: "VampireSlayer@Garlic.com", password: "iLoveStakes", birthday: "25/01/1985", fname: "Buffy", lname: "Summers"})
-u5 = User.create({email: "ExorciseTHIS@LindaBlair.com", password: "helpmeplease", birthday: "13/11/1963", fname: "Regan", lname: "Kid"})
+u5 = User.create({email: "ExorciseTHIS@LindaBlair.com", password: "helpmeplease", birthday: "13/11/1963", fname: "Regan", lname: "Posezhun"})
 u6 = User.create({email: "MondayTuesday@ThursdayFriday.net", password: "pugsleysucks", birthday: "25/12/1986", fname: "Wednesday", lname: "Addams"})
 u7 = User.create({email: "iLoveGhosts@werewolves.com", password: "teeheexoxo", birthday: "19/09/1999", fname: "Becky", lname: "Smith"})
 
@@ -57,12 +57,8 @@ r5 = HomeRentalRequest.create({home_id: h2.id, user_id: u6.id, start_date: "21/0
 r6 = HomeRentalRequest.create({home_id: h2.id, user_id: u5.id, start_date: "01/04/2018", end_date: "11/04/2018"})
 r7 = HomeRentalRequest.create({home_id: h2.id, user_id: u7.id, start_date: "12/04/2018", end_date: "14/04/2018"})
 
-HOMES = [h1, h2, h3, h4, h5, h6, h7]
 
-def randomHomeId
-  HOMES.sample[:id]
-end
 
-100.times do
-  Review.create({body: "One of the best experiences we've had. We still can't find little Timmy!", reviewer_id: randomUserId, home_id: randomHomeId, accuracy_stars: rand(0..5), communication_stars: rand(0..5), cleanliness_stars: rand(0..5), location_stars: rand(0..5), checkin_stars: rand(0..5), value_stars: rand(0..5)})
+5000.times do
+  Review.create({body: "One of the best experiences we've had. We still can't find little Timmy!", reviewer_id: User.order("RANDOM()").first.id, home_id: Home.order("RANDOM()").first.id, accuracy_stars: rand(1..5), communication_stars: rand(1..5), cleanliness_stars: rand(1..5), location_stars: rand(1..5), checkin_stars: rand(1..5), value_stars: rand(0..5)})
 end

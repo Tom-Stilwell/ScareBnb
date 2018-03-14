@@ -8,10 +8,17 @@
   border-bottom: 1px solid lightgrey;
   display: flex;
 }
+
+.reviews-header span {
+  line-height: 42px;
+  vertical-align: center;
+}
 .reviews-header-length {
   font-size: 24px;
   font-weight: 600;
   margin-right: 30px;
+  line-height: 42px;
+  vertical-align: center;
 }
 
 .reviews-stars {
@@ -26,4 +33,51 @@
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+}
+
+.star-cell {
+  line-height: 30px;
+  vertical-align: center;
+}
+
+
+.review-list-item {
+  height: auto;
+  border-bottom: 1px solid lightgrey;
+}
+
+.review-header {
+  margin: 20px 0;
+  display: flex;
+}
+
+.reviewer-thumbnail-div {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  position: relative;
+}
+
+.reviewer-thumbnail {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  filter: opacity(0.5) drop-shadow(0 0 0 red) brightness(3);
+}
+
+.review-info {
+  width: 40%;
+  margin-left: 30px;
+}
+
+.review-author-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.review-body {
+  margin: 20px 0;
 }

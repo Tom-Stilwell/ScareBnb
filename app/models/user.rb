@@ -21,6 +21,10 @@ class User < ApplicationRecord
     foreign_key: :reviewer_id,
     primary_key: :id
 
+  has_many :reviewed_homes,
+    through: :reviews,
+    source: :home
+
 
   attr_reader :password
 

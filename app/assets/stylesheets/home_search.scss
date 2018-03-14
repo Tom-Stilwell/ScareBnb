@@ -12,7 +12,7 @@
 #map-fix {
   position: fixed;
   top: 165px;
-  right: 20px;
+  right: 26px;
   left: auto;
   width: 600px;
   height: 700px;
@@ -32,11 +32,17 @@
   height: 100%;
   width: 66.67%;
   margin-right: 650px;
-  padding-left: 18px;
+  padding-left: 24px;
+}
+
+.index-header {
+  margin-top: 184px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .home-index-div {
-  margin-top: 200px;
+  margin-top: 20px;
   padding-right: 2px;
   // padding-left: 10px;
   width: 100%;
@@ -51,6 +57,7 @@
     display: none;
   }
 }
+
 
 .home-index-item-div {
   width: 100%;

@@ -17,6 +17,10 @@ class Home < ApplicationRecord
     foreign_key: :home_id,
     primary_key: :id
 
+  has_many :reviewers,
+    through: :reviews,
+    source: :reviewer
+
   def self.filter(filters)
     splitSouth = filters[:bounds]["southWest"][1...-1].split(", ")
     splitNorth = filters[:bounds]["northEast"][1...-1].split(", ")
@@ -45,7 +49,7 @@ class Home < ApplicationRecord
     homes
   end
 
-  def self.getReviewAverages(home_id)
+  def self.get_review_averages(home_id)
     averages = {}
     accuracy_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:accuracy_stars)[home_id].to_f
     communication_stars = Home.joins(:reviews).group(:id).where(id: home_id).average(:communication_stars)[home_id].to_f

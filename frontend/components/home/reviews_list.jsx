@@ -2,7 +2,7 @@ import React from "react";
 import ReactStars from "react-stars";
 import ReviewListItem from "./review_list_item";
 
-const ReviewsList = ({ reviews, stars }) => {
+const ReviewsList = ({ reviews, stars, reviewers }) => {
   // debugger
   return (
     <div className="reviews">
@@ -14,7 +14,7 @@ const ReviewsList = ({ reviews, stars }) => {
             value={stars.total}
             color1={"#999999"}
             color2={"#239090"}
-            size={30}
+            size={24}
           />
         </span>
       </div>
@@ -27,7 +27,7 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.accuracy_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
@@ -39,7 +39,7 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.location_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
@@ -51,7 +51,7 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.communication_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
@@ -63,7 +63,7 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.checkin_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
@@ -75,7 +75,7 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.cleanliness_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
@@ -87,13 +87,13 @@ const ReviewsList = ({ reviews, stars }) => {
               value={stars.value_stars}
               color1={"#999999"}
               color2={"#239090"}
-              size={24}
+              size={20}
             />
           </span>{" "}
         </div>
       </div>
       <div className="reviews-list">
-        {reviews.map(review => <ReviewListItem key={review.id} review={review} />)}
+        {reviews.map(review => <ReviewListItem key={review.id} review={review} reviewer={reviewers[review.reviewer_id]} />)}
       </div>
     </div>
   );

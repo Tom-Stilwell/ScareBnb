@@ -44,6 +44,7 @@ class HomeShow extends React.Component {
     const rentals = this.props.rentals;
     const stars = home.stars || {};
     const reviews = this.props.reviews;
+    const reviewers = this.props.reviewers;
 
     return (
       <div className="home-show-page">
@@ -83,9 +84,10 @@ class HomeShow extends React.Component {
           <div className="description">{description}</div>
           <div className="contact-host">Contact host</div>
         </div>
-        <ReviewsList stars={stars} reviews={reviews} />
+        <ReviewsList stars={stars} reviews={reviews} reviewers={reviewers}/>
         <RentalRequestForm
           price={price}
+          stars={stars.total}
           createRentalRequest={this.props.createRentalRequest}
           rentals={rentals}
           currentUser={this.props.currentUser}

@@ -1,5 +1,6 @@
 import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
+import ReactStars from "react-stars";
 
 class RentalRequestForm extends React.Component {
   constructor(props) {
@@ -178,7 +179,13 @@ class RentalRequestForm extends React.Component {
             <span className="rental-form-price">${price}</span>
             <span> per night</span>
           </div>
-          <div className="rental-form-stars">5 stars</div>
+          <div className="rental-form-stars"><ReactStars
+            edit={false}
+            value={this.props.stars}
+            color1={"#999999"}
+            color2={"#239090"}
+            size={16}
+          /></div>
         </div>
         <div className="rental-form-input-headers">
           <span>Dates</span>

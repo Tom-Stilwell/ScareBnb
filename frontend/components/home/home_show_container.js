@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import HomeShow from "./home_show";
 
 import { fetchHome } from "../../actions/home_actions";
-import { selectRentals, selectReviews } from "../../reducers/selectors";
+import { selectRentals, selectReviews, selectReviewers } from "../../reducers/selectors";
 import { createRentalRequest } from "../../actions/rental_actions";
 import { showModal } from "../../actions/modal_actions";
 import { startLoading, stopLoading } from "../../actions/loading_actions";
@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     home,
     rentals: selectRentals(state, home),
     reviews: selectReviews(state, home),
+    reviewers: selectReviewers(state, home),
     currentUser: state.session.currentUser,
     rentalErrors: state.errors.rental,
     isLoading: state.ui.loading.homeShow
