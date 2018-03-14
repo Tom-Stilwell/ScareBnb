@@ -81,9 +81,7 @@ input::placeholder {
   width: 200px;
   height: 200px;
   animation: spin 0.5s linear infinite;
-  animation-direction: alternate;
   -webkit-animation: spin 0.5s linear infinite;
-  -webkit-animation-direction: alternate;
 }
 
 @keyframes spin {
