@@ -5,20 +5,40 @@ import ReviewsList from "./reviews_list";
 class HomeShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { isLoading: true };
+    // debugger;
   }
 
   componentDidMount() {
     // debugger;
-    this.props.fetchHome(this.props.match.params.id);
+    this.props
+      .fetchHome(this.props.match.params.id)
+      .then(() => this.setState({ isLoading: false }));
+  }
+
+  componentWillReceiveProps(newProps) {
+    // debugger;
+    if (this.props.match.params.id !== newProps.match.params.id) {
+      this.setState({ isLoading: true }, () =>
+        this.props
+          .fetchHome(this.props.match.params.id)
+          .then(() => this.setState({ isLoading: false }))
+      );
+    }
   }
 
   render() {
     // debugger;
-    const home = this.props.home;
 
-    if (!home) {
-      return <div>...LOADING...</div>;
+    if (this.state.isLoading) {
+      return (
+        <div className="loader-background">
+          <div className="loader" />
+        </div>
+      );
     }
+
+    const home = this.props.home;
 
     // debugger;
     const title = home.title;
