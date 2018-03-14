@@ -80,9 +80,9 @@ input::placeholder {
   /* border-radius: 50%; */
   width: 200px;
   height: 200px;
-  animation: dots 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
   animation-direction: alternate;
-  -webkit-animation: dots 0.5s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
   -webkit-animation-direction: alternate;
 }
 
