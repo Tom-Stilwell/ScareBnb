@@ -27,7 +27,7 @@ class GuestsFilter extends React.Component {
   }
 
   handleApply() {
-    this.props.updateFilter("minGuests", this.state.guests);
+    this.props.updateGuests(this.state.guests);
     this.props.hideBox();
   }
 

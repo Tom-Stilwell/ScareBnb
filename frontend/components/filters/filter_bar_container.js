@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import { updateFilter } from "../../actions/filter_actions";
+import { startLoading, stopLoading } from "../../actions/loading_actions";
+
 import FilterBar from "./filter_bar";
 
 const mapStateToProps = state => ({
@@ -7,7 +9,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+  startLoading: () => dispatch(startLoading("homeSearch")),
+  stopLoading: () => dispatch(stopLoading("homeSearch"))
 });
 
-export default connect(null, mapDispatchToProps)(FilterBar);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);

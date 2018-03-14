@@ -42,7 +42,7 @@ class PriceFilter extends React.Component {
 
   handleApply() {
     const range = $("#price-slider").slider("option", "values");
-    this.props.updateFilter("price", {
+    this.props.updatePrice({
       minPrice: range[0],
       maxPrice: range[1]
     });

@@ -1,7 +1,8 @@
-import { hideModal, showModal } from "../actions/modal_actions";
-import { hideDropdown, showDropdown } from "../actions/dropdown_actions";
-import NavBar from "./navbar";
 import { connect } from "react-redux";
+import { hideModal, showModal } from "../../actions/modal_actions";
+import { hideDropdown, showDropdown } from "../../actions/dropdown_actions";
+import NavBar from "./navbar";
+
 
 const mapStateToProps = (state, ownProps) => ({
   component: state.ui.modal,

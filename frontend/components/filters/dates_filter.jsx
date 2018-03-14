@@ -36,7 +36,7 @@ class DatesFilter extends React.Component {
   }
 
   handleApply() {
-    this.props.updateFilter("dates", this.state);
+    this.props.updateDates(this.state);
     this.props.hideBox();
   }
 

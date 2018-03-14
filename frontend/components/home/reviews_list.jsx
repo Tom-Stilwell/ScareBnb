@@ -1,7 +1,9 @@
 import React from "react";
 import ReactStars from "react-stars";
+import ReviewListItem from "./review_list_item";
 
 const ReviewsList = ({ reviews, stars }) => {
+  // debugger
   return (
     <div className="reviews">
       <div className="reviews-header">
@@ -89,6 +91,9 @@ const ReviewsList = ({ reviews, stars }) => {
             />
           </span>{" "}
         </div>
+      </div>
+      <div className="reviews-list">
+        {reviews.map(review => <ReviewListItem key={review.id} review={review} />)}
       </div>
     </div>
   );

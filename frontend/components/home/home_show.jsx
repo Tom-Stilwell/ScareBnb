@@ -1,41 +1,33 @@
 import React from "react";
 import RentalRequestForm from "./rental_request_form";
 import ReviewsList from "./reviews_list";
+import Loader from "../loader";
 
 class HomeShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isLoading: true };
-    // debugger;
   }
 
   componentDidMount() {
-    // debugger;
-    this.props
-      .fetchHome(this.props.match.params.id)
-      .then(() => this.setState({ isLoading: false }));
+
+    this.props.startLoading("homeShow");
+    this.props.fetchHome(this.props.match.params.id)
+    .then(() => this.props.stopLoading("homeShow"));
   }
 
   componentWillReceiveProps(newProps) {
     // debugger;
     if (this.props.match.params.id !== newProps.match.params.id) {
-      this.setState({ isLoading: true }, () =>
-        this.props
-          .fetchHome(this.props.match.params.id)
-          .then(() => this.setState({ isLoading: false }))
-      );
+      this.props.startLoading("homeShow");
+      this.props.fetchHome(newProps.match.params.id)
+      .then(() => this.props.stopLoading("homeShow"));
     }
   }
 
   render() {
-    // debugger;
 
-    if (this.state.isLoading) {
-      return (
-        <div className="loader-background">
-          <div className="loader" />
-        </div>
-      );
+    if (this.props.isLoading) {
+      return <Loader />;
     }
 
     const home = this.props.home;
@@ -50,7 +42,7 @@ class HomeShow extends React.Component {
     const lat = home.lat;
     const description = home.description;
     const rentals = this.props.rentals;
-    const stars = home.stars;
+    const stars = home.stars || {};
     const reviews = this.props.reviews;
 
     return (

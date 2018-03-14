@@ -76,11 +76,11 @@ export default class MarkerManager {
     });
     marker.setMap(this.map);
 
-    marker.addListener("mouseover", () => {
+    let mouseover = marker.addListener("mouseover", () => {
       marker.setIcon(icon2);
       marker.setZIndex(marker.zIndex * 100);
     });
-    marker.addListener("mouseout", () => {
+    let mouseout = marker.addListener("mouseout", () => {
       marker.setIcon(icon1);
       marker.setZIndex(marker.zIndex / 100);
     });
@@ -112,7 +112,19 @@ export default class MarkerManager {
     // debugger;
 
     marker.addListener("click", () => {
+      mouseout.remove();
+      marker.setIcon(icon2);
+      marker.setZIndex(marker.zIndex * 100);
       infoWindow.open(this.map, marker);
+    });
+
+    infoWindow.addListener("closeclick", () => {
+      marker.setIcon(icon1);
+      marker.setZIndex(marker.zIndex / 100);
+      mouseout = marker.addListener("mouseout", () => {
+        marker.setIcon(icon1);
+        marker.setZIndex(marker.zIndex / 100);
+      });
     });
 
     this.markers[home.id] = marker;

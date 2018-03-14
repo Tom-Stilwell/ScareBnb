@@ -1,9 +1,6 @@
 import React from "react";
-import Modal from "./modal";
-import ghost from "../../app/assets/images/ghost.png";
-import Dropdown from "./dropdown";
-
-// console.log(ghost);
+import Modal from "../modal";
+import Dropdown from "../dropdown";
 
 class ProtectedRightNavBar extends React.Component {
   constructor(props) {

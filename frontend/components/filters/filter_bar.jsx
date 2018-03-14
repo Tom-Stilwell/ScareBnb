@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { updateFilter } from "../../actions/filter_actions";
 import GuestsFilter from "./guests_filter";
 import PriceFilter from "./price_filter";
@@ -17,17 +16,18 @@ class FilterBar extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.hideBox = this.hideBox.bind(this);
+    this.updateGuests = this.updateGuests.bind(this);
+    this.updatePrice = this.updatePrice.bind(this);
+    this.updateDates = this.updateDates.bind(this);
   }
 
   componentWillReceiveProps(props) {
-    const minGuests =
-      props.filters.minGuests > 1
-        ? `${props.filters.minGuests}+ guests`
-        : "Guests";
+    const minGuests = props.filters.minGuests > 1 ? `${props.filters.minGuests}+ guests` : "Guests";
 
     let price;
     const minPrice = props.filters.price.minPrice;
     const maxPrice = props.filters.price.maxPrice;
+
     if (minPrice > 10 && maxPrice < 1000) {
       price = `$${minPrice} - $${maxPrice}`;
     } else if (minPrice > 10) {
@@ -41,6 +41,27 @@ class FilterBar extends React.Component {
     let dates = "Dates";
 
     this.setState({ minGuests, price, dates });
+  }
+
+  updateGuests(guests) {
+    this.props.startLoading();
+
+    this.props.updateFilter("minGuests", guests)
+      .then(() => this.props.stopLoading());
+  }
+
+  updatePrice(price) {
+    this.props.startLoading();
+
+    this.props.updateFilter("price", price)
+      .then(() => this.props.stopLoading());
+  }
+
+  updateDates(dates) {
+    this.props.startLoading();
+
+    this.props.updateFilter("dates", dates)
+      .then(() => this.props.stopLoading());
   }
 
   handleClick(box) {
@@ -60,7 +81,7 @@ class FilterBar extends React.Component {
     if (this.state.box === "Guests") {
       component = (
         <GuestsFilter
-          updateFilter={this.props.updateFilter}
+          updateGuests={this.updateGuests}
           hideBox={this.hideBox}
           minGuests={this.props.filters.minGuests}
         />
@@ -68,7 +89,7 @@ class FilterBar extends React.Component {
     } else if (this.state.box === "Price") {
       component = (
         <PriceFilter
-          updateFilter={this.props.updateFilter}
+          updatePrice={this.updatePrice}
           hideBox={this.hideBox}
           minPrice={this.props.filters.price.minPrice}
           maxPrice={this.props.filters.price.maxPrice}
@@ -77,7 +98,7 @@ class FilterBar extends React.Component {
     } else if (this.state.box === "Dates") {
       component = (
         <DatesFilter
-          updateFilter={this.props.updateFilter}
+          updateDates={this.updateDates}
           hideBox={this.hideBox}
           startDate={this.props.filters.dates.startDate}
           endDate={this.props.filters.dates.endDate}
@@ -133,9 +154,5 @@ class FilterBar extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ filters: state.ui.filters });
-const mapDispatchToProps = dispatch => ({
-  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
+export default FilterBar;

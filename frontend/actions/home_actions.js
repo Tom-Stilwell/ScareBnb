@@ -1,5 +1,6 @@
 import * as HomeApiUtil from "../util/home_api_util.js";
 import { receiveHomeErrors } from "./error_actions";
+import { startLoading,stopLoading } from "./loading_actions";
 
 export const RECEIVE_HOMES = "RECEIVE_HOMES";
 export const RECEIVE_HOME = "RECEIVE_HOME";
@@ -21,7 +22,7 @@ export const removeHome = homeId => ({
 });
 
 export const fetchHomes = filters => dispatch =>
-  HomeApiUtil.fetchHomes(filters).then(
+ HomeApiUtil.fetchHomes(filters).then(
     homes => dispatch(receiveHomes(homes)),
     errors => dispatch(receiveHomeErrors(errors))
   );

@@ -1,8 +1,6 @@
 import React from "react";
-import Modal from "./modal";
-import ghost from "../../app/assets/images/ghost.png";
+import Modal from "../modal";
 
-// console.log(ghost);
 
 class AuthRightNavBar extends React.Component {
   constructor(props) {

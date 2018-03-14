@@ -1,16 +1,19 @@
 import { merge } from "lodash";
-import { RECEIVE_LOADING } from "../actions/loading_actions";
-import { RECEIVE_HOME, RECEIVE_HOMES } from "../actions/home_actions";
+import { RECEIVE_LOADING, RECEIVE_LOADED } from "../actions/loading_actions";
 
-const loadingReducer = (oldState = false, action) => {
+const defaultState = {
+  homeShow: false,
+  homeSearch: true
+};
+
+const loadingReducer = (oldState = defaultState, action) => {
   Object.freeze(oldState);
-
   switch (action.type) {
     case RECEIVE_LOADING:
-      return true;
-    case RECEIVE_HOME:
-    case RECEIVE_HOMES:
-      return false;
+      return merge({}, oldState, {[action.component]: true});
+
+    case RECEIVE_LOADED:
+      return merge({}, oldState, {[action.component]: false});
     default:
       return oldState;
   }

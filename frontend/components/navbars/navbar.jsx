@@ -1,12 +1,12 @@
 import React from "react";
-import Modal from "./modal";
-import ghost from "../../app/assets/images/ghost.png";
 import { withRouter } from "react-router-dom";
+import Modal from "../modal";
+import ghost from "../../../app/assets/images/ghost.png";
 import AuthRightNavBar from "./auth_right_navbar";
 import ProtectedRightNavBar from "./protected_right_navbar";
-import SearchBar from "./search_bar";
-import { NotRoot } from "../util/route_util";
-// console.log(ghost);
+import SearchBar from "../search_bar";
+import { NotRoot } from "../../util/route_util";
+
 
 class NavBar extends React.Component {
   constructor(props) {

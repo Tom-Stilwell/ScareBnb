@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ghost from "../../../app/assets/images/ghost.png";
 
 const HomeIndexItem = ({ home }) => {
   // debugger;
@@ -7,6 +8,7 @@ const HomeIndexItem = ({ home }) => {
     <div className="home-index-item-div">
       <Link to={`homes/${home.id}`}>
         <span>
+          <img className="thumbnail-image-backup" src={ghost} />
           <img className="thumbnail-image" src={home.image_url} />
         </span>
 

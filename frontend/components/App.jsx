@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "./navbar_container";
+import NavBar from "./navbars/navbar_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Modal from "./modal";
 import MainSplash from "./main_splash";
-import HomeSearch from "./home_search_container";
+import HomeSearch from "./home/home_search_container";
 import HomeShow from "./home/home_show_container";
 
 const App = () => (
