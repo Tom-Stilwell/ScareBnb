@@ -8,6 +8,7 @@ class HomeMap extends React.Component {
     this.updateFilter = this.props.updateFilter.bind(this);
     this.lat = 0;
     this.lng = 0;
+    this.state = { isLoading: true };
   }
 
   componentDidMount() {
@@ -34,13 +35,16 @@ class HomeMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
 
     this.MarkerManager.updateMarkers(homes);
-
+    const that = this;
     this.map.addListener("idle", () => {
       const mapBounds = this.map.getBounds();
       const northEast = mapBounds.getNorthEast().toString();
       const southWest = mapBounds.getSouthWest().toString();
       const boundsObj = { northEast, southWest };
-      this.updateFilter("bounds", boundsObj);
+      this.updateFilter("bounds", boundsObj).then(() => {
+        // debugger;
+        that.setState({ isLoading: false });
+      });
     });
 
     // this.map.addListener("click", (e) => {
@@ -74,9 +78,16 @@ class HomeMap extends React.Component {
   }
 
   render() {
+    const loading = this.state.isLoading ? (
+      <div className="loader-background">
+        <div className="loader" />
+      </div>
+    ) : null;
+    // debugger;
     return (
       <div id="map-fix">
         <div id="home-map-container" ref={map => (this.mapNode = map)} />
+        {loading}
       </div>
     );
   }
