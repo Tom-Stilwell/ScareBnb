@@ -1,10 +1,11 @@
 import React from "react";
 import { hideModal } from "../actions/modal_actions";
 import { connect } from "react-redux";
-import LoginFormContainer from "./session/login_form_container";
-import SignupFormContainer from "./session/signup_form_container";
+import LoginForm from "./session/login_form_container";
+import SignupForm from "./session/signup_form_container";
 import ReservationConfirmation from "./reservation_confirmation";
 import Construction from "./construction";
+import ReviewForm from "./trips/review_form_container";
 
 const Modal = ({ modal, hideModal, currentUser }) => {
   if (!modal) {
@@ -13,13 +14,18 @@ const Modal = ({ modal, hideModal, currentUser }) => {
   let component;
   switch (modal) {
     case "login":
-      component = <LoginFormContainer />;
+      component = <LoginForm />;
       break;
     case "signup":
-      component = <SignupFormContainer />;
+      component = <SignupForm />;
       break;
     case "reserve":
       component = <ReservationConfirmation currentUser={currentUser} />;
+      break;
+    case "review":
+      component = (
+        <ReviewForm currentUser={currentUser} hideModal={hideModal} />
+      );
       break;
     case "construction":
       component = <Construction />;

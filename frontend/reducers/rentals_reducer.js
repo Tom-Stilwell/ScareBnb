@@ -1,5 +1,6 @@
 import { merge } from "lodash";
 import { RECEIVE_HOME } from "../actions/home_actions";
+import { RECEIVE_CURRENT_USER_INFO } from "../actions/user_actions";
 import { RECEIVE_RENTAL } from "../actions/rental_actions";
 
 const rentalsReducer = (oldState = {}, action) => {
@@ -7,10 +8,11 @@ const rentalsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_HOME:
-      // debugger;
       return merge({}, oldState, action.home.rentals);
     case RECEIVE_RENTAL:
       return merge({}, oldState, { [action.rental.id]: action.rental });
+    case RECEIVE_CURRENT_USER_INFO:
+      return merge({}, oldState, action.currentUser.rentals);
     default:
       return oldState;
   }

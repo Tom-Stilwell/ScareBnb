@@ -13,6 +13,12 @@ class Api::UsersController < ApplicationController
   def show
   end
 
+  def get_trips
+    @user = User.find(params[:user_id])
+
+    render template: "api/users/trips.json"
+  end
+
   def update
   end
 

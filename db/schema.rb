@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313194340) do
+ActiveRecord::Schema.define(version: 20180315151300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180313194340) do
     t.string "status", default: "PENDING", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "reviewed", default: false
     t.index ["end_date"], name: "index_home_rental_requests_on_end_date"
     t.index ["home_id"], name: "index_home_rental_requests_on_home_id"
     t.index ["start_date"], name: "index_home_rental_requests_on_start_date"

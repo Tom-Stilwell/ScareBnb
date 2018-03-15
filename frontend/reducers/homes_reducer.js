@@ -5,6 +5,8 @@ import {
   REMOVE_HOME
 } from "../actions/home_actions";
 
+import { RECEIVE_CURRENT_USER_INFO } from "../actions/user_actions";
+
 const homesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   // debugger;
@@ -17,6 +19,8 @@ const homesReducer = (oldState = {}, action) => {
       const tempState = merge({}, oldState);
       delete tempState[action.homeId];
       return tempState;
+    case RECEIVE_CURRENT_USER_INFO:
+      return merge({}, oldState, action.currentUser.homes);
     default:
       return oldState;
   }

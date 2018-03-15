@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     post "/homes/:home_id/createRental", to: "homes#create_rental"
     post "/homes/:home_id/createReview", to: "homes#create_review"
+    get "/users/:user_id/trips", to: "users#get_trips"
 
     resources :users, only: [:create, :show, :update, :destroy]
 

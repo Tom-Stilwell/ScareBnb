@@ -40,7 +40,6 @@
   vertical-align: center;
 }
 
-
 .review-list-item {
   height: auto;
   border-bottom: 1px solid lightgrey;
@@ -80,4 +79,29 @@
 
 .review-body {
   margin: 20px 0;
+}
+
+.review-form-body textarea {
+  resize: none;
+  margin: 20px 0;
+  border: 1px solid lightgrey;
+}
+
+.review-form-body textarea:focus {
+  outline: none;
+  border: 1px solid #006666;
+}
+
+.review-form-content {
+  padding: 30px;
+  align-items: center;
+}
+
+.review-form-content h1 {
+  font-size: 32px;
+  color: black;
+}
+
+.review-form-content .star-cell {
+  padding: 10px 20px;
 }

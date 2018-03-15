@@ -21,6 +21,12 @@
   vertical-align: middle;
   max-height: 81px;
 }
+
+@media (max-width: 850px) {
+  .right-navbar {
+    display: none;
+  }
+}
 .right-navbar-list {
   list-style: none;
   padding-left: 0;

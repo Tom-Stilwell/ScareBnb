@@ -93,7 +93,9 @@ class Api::HomesController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      render json: {id: @review.id, home_id: @review.home_id, user_id: @review.user_id}
+      rental = HomeRentalRequest.find(params[:review][:rental_id])
+      rental.update({reviewed: true})
+      render json: {id: @review.id, home_id: @review.home_id, reviewer_id: @review.reviewer_id}
     else
       render json: {errors: @review.errors.full_messages}, status: 422
     end

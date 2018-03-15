@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../modal";
 import Dropdown from "../dropdown";
+import { withRouter } from "react-router-dom";
 
 class ProtectedRightNavBar extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class ProtectedRightNavBar extends React.Component {
             <div className="trips-div">
               <button
                 type="button"
-                onClick={() => this.props.showModal("construction")}
+                onClick={() => this.props.history.push("/trips")}
                 className="session-button"
               >
                 Trips
@@ -65,4 +66,4 @@ class ProtectedRightNavBar extends React.Component {
   }
 }
 
-export default ProtectedRightNavBar;
+export default withRouter(ProtectedRightNavBar);

@@ -12,6 +12,10 @@ class Home < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
 
+  has_many :visitors,
+    through: :rentals,
+    source: :user
+
   has_many :reviews,
     class_name: "Review",
     foreign_key: :home_id,

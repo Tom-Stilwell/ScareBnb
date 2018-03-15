@@ -16,6 +16,10 @@ class User < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
 
+  has_many :rented_homes,
+    through: :home_rental_requests,
+    source: :home
+
   has_many :reviews,
     class_name: "Review",
     foreign_key: :reviewer_id,
@@ -40,6 +44,18 @@ class User < ApplicationRecord
 
   def self.generate_random_token
     SecureRandom.urlsafe_base64
+  end
+
+  def rentals
+    self.home_rental_requests.where(status: "APPROVED")
+  end
+
+  def expired_rentals
+    self.rentals.where("end_date <= ?", Time.now)
+  end
+
+  def upcoming_rentals
+    self.rentals.where("start_date >= ?", Time.now)
   end
 
   def email=(email)

@@ -1,0 +1,79 @@
+.trips-page {
+  position: absolute;
+  top: 81px;
+  width: 100%;
+}
+
+.your-trips {
+  font-size: 40px;
+  font-weight: 700;
+  color: black;
+  margin: 40px 10%;
+}
+
+.trips-category-containers {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 40px 10%;
+  padding-bottom: 30px;
+  border-bottom: 1px solid grey;
+}
+
+.trips-header {
+  font-size: 26px;
+  color: #009999;
+  padding-bottom: 20px;
+  display: block;
+}
+
+.trip-item {
+  width: 35vw;
+  height: 10vw;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 5px 0px rgba(212, 212, 212, 1);
+}
+
+.trip-item-content {
+  padding: 1.2vw;
+  display: flex;
+}
+
+.trip-thumbnail {
+  height: 100%;
+  width: 30%;
+}
+
+.trip-info {
+  padding: 0 1vw;
+}
+
+.trip-home-title {
+  font-size: 1.5vw;
+  font-weight: 500;
+  padding-bottom: 0.5vw;
+}
+
+.trip-info p {
+  font-size: 1vw;
+  margin: 0.5vw 0;
+}
+
+.already-reviewed {
+  font-size: 1vw;
+}
+
+.needs-review {
+  font-size: 1vw;
+}
+
+.needs-review span {
+  color: #009999;
+}
+
+.needs-review span:hover {
+  cursor: pointer;
+}

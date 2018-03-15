@@ -15,3 +15,19 @@ export const selectReviewers = (state, home) => {
     return {};
   }
 };
+
+export const selectExpiredRentals = (state, user) => {
+  if (user && user.expired_rental_ids) {
+    return user.expired_rental_ids.map(id => state.entities.rentals[id])
+  } else {
+    return [];
+  }
+}
+
+export const selectUpcomingRentals = (state, user) => {
+  if (user && user.upcoming_rental_ids) {
+    return user.upcoming_rental_ids.map(id => state.entities.rentals[id])
+  } else {
+    return [];
+  }
+}

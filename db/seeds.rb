@@ -42,7 +42,15 @@ def randomHomeTitle
 end
 
 def randomUserId
-  USERS.sample[:id]
+  User.order("RANDOM()").first.id
+end
+
+def randomHomeId
+  Home.order("RANDOM()").first.id
+end
+
+def randomDate (from = Time.local(2016, 1, 1), to = Time.local(2019, 1, 1))
+  Time.at(from + rand * (to.to_f - from.to_f))
 end
 
 100.times do
@@ -57,8 +65,19 @@ r5 = HomeRentalRequest.create({home_id: h2.id, user_id: u6.id, start_date: "21/0
 r6 = HomeRentalRequest.create({home_id: h2.id, user_id: u5.id, start_date: "01/04/2018", end_date: "11/04/2018"})
 r7 = HomeRentalRequest.create({home_id: h2.id, user_id: u7.id, start_date: "12/04/2018", end_date: "14/04/2018"})
 
+100.times do
+  start_date = randomDate
+  end_date = randomDate + rand(1..9)
+  HomeRentalRequest.create({home_id: randomHomeId, user_id: randomUserId, start_date: start_date, end_date: end_date})
+end
 
+REVIEWS = ["One of the best experiences we've had. We still can't find little Timmy!",
+  "I've never peed so much in my life!",
+  "There was an antique little girl doll in the corner that shouted obscenities in Latin the entire time. I really couldn't have asked for a better honeymoon.",
+  "My husband and I thought this site was a joke. It's no joke. Guess I don't need to go for that colonic this year.",
+  "Before she passed, my mother said she'd always be there in spirit. On this vacation, she literally was!",
+  "Really more of a spooky experience than a scary one. Could've used more carnage and less twilight wailing."]
 
-5000.times do
-  Review.create({body: "One of the best experiences we've had. We still can't find little Timmy!", reviewer_id: User.order("RANDOM()").first.id, home_id: Home.order("RANDOM()").first.id, accuracy_stars: rand(1..5), communication_stars: rand(1..5), cleanliness_stars: rand(1..5), location_stars: rand(1..5), checkin_stars: rand(1..5), value_stars: rand(0..5)})
+1000.times do
+  Review.create({body: REVIEWS.sample, reviewer_id: randomUserId, home_id: randomHomeId, accuracy_stars: rand(1..5), communication_stars: rand(1..5), cleanliness_stars: rand(1..5), location_stars: rand(1..5), checkin_stars: rand(1..5), value_stars: rand(1..5)})
 end

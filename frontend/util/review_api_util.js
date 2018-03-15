@@ -1,7 +1,7 @@
 export const createReview = (homeId, review) =>
   $.ajax({
     type: "POST",
-    url: `/api/homes/${homeId}/createRental`,
+    url: `/api/homes/${homeId}/createReview`,
     data: { review }
   });
 

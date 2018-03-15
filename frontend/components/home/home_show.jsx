@@ -9,23 +9,23 @@ class HomeShow extends React.Component {
   }
 
   componentDidMount() {
-
     this.props.startLoading("homeShow");
-    this.props.fetchHome(this.props.match.params.id)
-    .then(() => this.props.stopLoading("homeShow"));
+    this.props
+      .fetchHome(this.props.match.params.id)
+      .then(() => this.props.stopLoading("homeShow"));
   }
 
   componentWillReceiveProps(newProps) {
     // debugger;
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.props.startLoading("homeShow");
-      this.props.fetchHome(newProps.match.params.id)
-      .then(() => this.props.stopLoading("homeShow"));
+      this.props
+        .fetchHome(newProps.match.params.id)
+        .then(() => this.props.stopLoading("homeShow"));
     }
   }
 
   render() {
-
     if (this.props.isLoading) {
       return <Loader />;
     }
@@ -49,7 +49,7 @@ class HomeShow extends React.Component {
     return (
       <div className="home-show-page">
         <div className="home-show-image-container">
-          <div className="trees" />
+          <div className="home-show-image-background" />
           <div
             className="home-show-image"
             style={{ backgroundImage: "url(" + imageUrl + ")" }}
@@ -84,7 +84,7 @@ class HomeShow extends React.Component {
           <div className="description">{description}</div>
           <div className="contact-host">Contact host</div>
         </div>
-        <ReviewsList stars={stars} reviews={reviews} reviewers={reviewers}/>
+        <ReviewsList stars={stars} reviews={reviews} reviewers={reviewers} />
         <RentalRequestForm
           price={price}
           stars={stars.total}
