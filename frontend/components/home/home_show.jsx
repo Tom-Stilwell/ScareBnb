@@ -2,6 +2,7 @@ import React from "react";
 import RentalRequestForm from "./rental_request_form";
 import ReviewsList from "./reviews_list";
 import Loader from "../loader";
+import { Carousel } from "react-responsive-carousel";
 
 class HomeShow extends React.Component {
   constructor(props) {
@@ -46,14 +47,38 @@ class HomeShow extends React.Component {
     const reviews = this.props.reviews;
     const reviewers = this.props.reviewers;
 
+    // const background = (
+    //   <div>
+    //     <div className="home-show-image-background" />{" "}
+    //     <div
+    //       className="home-show-image"
+    //       style={{ backgroundImage: "url(" + imageUrl + ")" }}
+    //     />
+    //   </div>
+    // );
+
     return (
       <div className="home-show-page">
         <div className="home-show-image-container">
-          <div className="home-show-image-background" />
-          <div
-            className="home-show-image"
-            style={{ backgroundImage: "url(" + imageUrl + ")" }}
-          />
+          <div className="carousel-wrapper">
+            <Carousel width="60%" showThumbs={false}>
+              <div>
+                <img height="500px" src={imageUrl} />
+              </div>
+              <div>
+                <img
+                  height="500px"
+                  src="https://www.thesun.co.uk/wp-content/uploads/2016/04/2810515.main_image.jpg?strip=all"
+                />
+              </div>
+              <div>
+                <img
+                  height="500px"
+                  src="https://a0.muscache.com/im/pictures/de4c65f8-6e66-475b-a9cb-15cc0e236e4e.jpg?aki_policy=large"
+                />
+              </div>
+            </Carousel>
+          </div>
         </div>
         <div className="home-show-info">
           <div className="info-header">

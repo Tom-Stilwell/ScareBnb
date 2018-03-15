@@ -7,14 +7,23 @@
 .home-show-image-container {
   height: 500px;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+  // align-content: center;
   position: relative;
+  background-color: black;
 }
 
+.carousel-wrapper {
+  margin-left: 30vw;
+}
+
+.carousel-wrapper img {
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 1) inset;
+}
 .home-show-image-background {
   height: 100%;
-  width: 100%;
+  width: 30vw;
   background-color: black;
 }
 

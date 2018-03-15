@@ -28,7 +28,7 @@ const Modal = ({ modal, hideModal, currentUser }) => {
       );
       break;
     case "construction":
-      component = <Construction />;
+      component = <Construction hideModal={hideModal} />;
       break;
     default:
       return null;

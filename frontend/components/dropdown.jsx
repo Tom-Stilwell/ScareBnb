@@ -31,10 +31,10 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    hideDropdown: () => dispatch(hideDropdown())
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     hideDropdown: () => dispatch(hideDropdown())
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dropdown);
+export default connect(mapStateToProps, { hideDropdown })(Dropdown);
