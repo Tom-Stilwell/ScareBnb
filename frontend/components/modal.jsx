@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ReservationConfirmation from "./reservation_confirmation";
+import Construction from "./construction";
 
-function Modal({ modal, hideModal, currentUser }) {
+const Modal = ({ modal, hideModal, currentUser }) => {
   if (!modal) {
     return null;
   }
@@ -20,6 +21,9 @@ function Modal({ modal, hideModal, currentUser }) {
     case "reserve":
       component = <ReservationConfirmation currentUser={currentUser} />;
       break;
+    case "construction":
+      component = <Construction />;
+      break;
     default:
       return null;
   }
@@ -30,7 +34,7 @@ function Modal({ modal, hideModal, currentUser }) {
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {

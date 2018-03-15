@@ -7,7 +7,6 @@ import ProtectedRightNavBar from "./protected_right_navbar";
 import SearchBar from "../search_bar";
 import { NotRoot } from "../../util/route_util";
 
-
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,6 @@ class NavBar extends React.Component {
     };
   }
 
-
   render() {
     // debugger
     return (
@@ -31,10 +29,17 @@ class NavBar extends React.Component {
           </a>
         </div>
 
-        <NotRoot exact={this.props.match.isExact} path={this.props.match.path} component={SearchBar} />
+        <NotRoot
+          exact={this.props.match.isExact}
+          path={this.props.match.path}
+          component={SearchBar}
+        />
 
         {this.props.currentUser ? (
-          <ProtectedRightNavBar showDropdown={this.props.showDropdown} />
+          <ProtectedRightNavBar
+            showDropdown={this.props.showDropdown}
+            showModal={this.props.showModal}
+          />
         ) : (
           <AuthRightNavBar showModal={this.props.showModal} />
         )}

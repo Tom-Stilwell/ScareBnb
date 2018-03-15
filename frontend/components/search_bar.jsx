@@ -14,18 +14,18 @@ class SearchBar extends React.Component {
 
   componentDidMount() {
     const input = document.getElementById("searchInput");
-    const options = {types: ["(regions)"]};
+    const options = { types: ["(regions)"] };
     const autocomplete = new google.maps.places.Autocomplete(input, options);
 
     let address;
-    autocomplete.addListener("place_changed", (e) => {
+    autocomplete.addListener("place_changed", e => {
       if (!autocomplete.getPlace().formatted_address) {
         address = autocomplete.getPlace().name;
-        this.setState({search: address});
+        this.setState({ search: address });
         this.handleSubmit(address);
       } else {
         address = autocomplete.getPlace().formatted_address;
-        this.setState({search: address});
+        this.setState({ search: address });
         this.handleSubmit(address);
       }
     });
@@ -40,11 +40,9 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(address) {
-
     // if (e.key !== "Enter") {
     //   return;
     // }
-    debugger
     const geocoder = new google.maps.Geocoder();
     // let address;
 
@@ -88,7 +86,6 @@ class SearchBar extends React.Component {
           value={this.state.search}
           placeholder="Anywhere &middot; Homes"
           onChange={this.handleUpdate}
-
           autoComplete="on"
         />
         {closer}

@@ -22,7 +22,7 @@ class ProtectedRightNavBar extends React.Component {
             <div className="trips-div">
               <button
                 type="button"
-                onClick={this.handleClick("trips")}
+                onClick={() => this.props.showModal("construction")}
                 className="session-button"
               >
                 Trips
@@ -31,7 +31,7 @@ class ProtectedRightNavBar extends React.Component {
             <div className="messages-div">
               <button
                 type="button"
-                onClick={this.handleClick("messages")}
+                onClick={() => this.props.showModal("construction")}
                 className="session-button"
               >
                 Messages
@@ -40,7 +40,7 @@ class ProtectedRightNavBar extends React.Component {
             <div className="help-div">
               <button
                 type="button"
-                onClick={this.handleClick("help")}
+                onClick={() => this.props.showModal("construction")}
                 className="session-button"
               >
                 Help
