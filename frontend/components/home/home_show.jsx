@@ -77,6 +77,12 @@ class HomeShow extends React.Component {
                   src="https://a0.muscache.com/im/pictures/de4c65f8-6e66-475b-a9cb-15cc0e236e4e.jpg?aki_policy=large"
                 />
               </div>
+              <div>
+                <img
+                  height="500px"
+                  src="http://d98uffoa56ghc.cloudfront.net/wp-content/uploads/2015/01/35-Scary-and-Haunted-Abandoned-Places-Title.jpg"
+                />
+              </div>
             </Carousel>
           </div>
         </div>
