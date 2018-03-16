@@ -1,7 +1,7 @@
 # ScareBnb
 
 
-![alt text](https://github.com/Tom-Stilwell/ScareBnb/blob/master/app/assets/images/ghost.png "spooky")
+![alt text](https://github.com/Tom-Stilwell/ScareBnb/blob/master/app/assets/images/ghost.png =60x60 "spooky" )
 
 
 This README would normally document whatever steps are necessary to get the
