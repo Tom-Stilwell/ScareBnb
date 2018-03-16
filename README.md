@@ -1,7 +1,7 @@
 # ScareBnb
 
 
-<img src="https://github.com/Tom-Stilwell/ScareBnb/blob/master/app/assets/images/ghost.png" alt="spooky" width="50px" height="50px"/>
+<img src="https://github.com/Tom-Stilwell/ScareBnb/blob/master/app/assets/images/ghost.png" alt="spooky" align="center" width="100px" height="100px"/>
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
