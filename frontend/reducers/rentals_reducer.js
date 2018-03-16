@@ -8,11 +8,11 @@ const rentalsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_HOME:
-      return merge({}, oldState, action.home.rentals);
+      return merge({}, action.home.rentals);
     case RECEIVE_RENTAL:
       return merge({}, oldState, { [action.rental.id]: action.rental });
     case RECEIVE_CURRENT_USER_INFO:
-      return merge({}, oldState, action.currentUser.rentals);
+      return merge({}, action.currentUser.rentals);
     default:
       return oldState;
   }

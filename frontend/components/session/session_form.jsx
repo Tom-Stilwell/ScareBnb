@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
         stateUpdate = { password: password.slice(0, i - email.length) };
       }
       // debugger
-      let interval = 150;
+      let interval = 100;
       this.setState(stateUpdate, () => {
         i++;
         if (i <= email.length + password.length) {
@@ -207,9 +207,6 @@ class SessionForm extends React.Component {
 
     return (
       <div>
-        <div onClick={this.props.hideModal} className="close-x">
-          X
-        </div>
         <div className="session-errors">{errors}</div>
         <div className="session-form">
           {instructions}

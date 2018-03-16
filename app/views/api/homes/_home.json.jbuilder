@@ -3,7 +3,7 @@ json.home do
   json.merge! home.attributes
   json.stars Home.get_review_averages(home.id)
   json.rental_ids home.rentals.pluck(:id)
-  json.review_ids home.reviews.pluck(:id)
+  json.review_ids home.reviews.order("created_at DESC").pluck(:id)
   json.reviewer_ids home.reviewers.distinct.pluck(:id)
 end
 

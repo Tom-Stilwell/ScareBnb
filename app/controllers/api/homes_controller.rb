@@ -78,9 +78,9 @@ class Api::HomesController < ApplicationController
   end
 
   def destroy_rental
-    rental = HomeRentalRequest.find(params[:rental][:id])
+    rental = HomeRentalRequest.find(params[:rental_id])
 
-    if current_user != rental.user_id
+    if current_user.id != rental.user_id
       render json: {errors: ["That's not your reservation!"]}, status: 403
     elsif rental.destroy
       render json: {notice: "Reservation deleted", id: rental.id}, status: 200

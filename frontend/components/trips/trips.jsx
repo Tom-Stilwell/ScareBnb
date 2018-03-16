@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import TripItem from "./trip_item";
+import Loader from "../loader";
 
 class Trips extends React.Component {
   constructor(props) {
@@ -9,13 +10,23 @@ class Trips extends React.Component {
 
   componentDidMount() {
     if (this.props.currentUser) {
-      this.props.fetchCurrentUserInfo(this.props.currentUser.id);
+      this.props.startLoading();
+      this.props
+        .fetchCurrentUserInfo(this.props.currentUser.id)
+        .then(() => this.props.stopLoading());
     }
+  }
+
+  componentWillUnmount() {
+    this.props.startLoading();
   }
 
   render() {
     if (!this.props.currentUser) {
       return <Redirect to="/" />;
+    }
+    if (this.props.isLoading) {
+      return <Loader />;
     }
 
     const {
@@ -23,7 +34,9 @@ class Trips extends React.Component {
       expiredRentals,
       upcomingRentals,
       homes,
-      showReviewModal
+      showReviewModal,
+      destroyRental,
+      fetchCurrentUserInfo
     } = this.props;
     return (
       <div className="trips-page">
@@ -39,6 +52,9 @@ class Trips extends React.Component {
               rental={rental}
               home={homes[rental.home_id]}
               past={false}
+              destroyRental={destroyRental}
+              fetchCurrentUserInfo={fetchCurrentUserInfo}
+              currentUser={currentUser}
             />
           ))}
         </div>

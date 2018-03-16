@@ -17,7 +17,6 @@ class HomeShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger;
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.props.startLoading("homeShow");
       this.props
@@ -26,6 +25,9 @@ class HomeShow extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.startLoading("homeShow");
+  }
   render() {
     if (this.props.isLoading) {
       return <Loader />;
@@ -68,7 +70,7 @@ class HomeShow extends React.Component {
               <div>
                 <img
                   height="500px"
-                  src="https://www.thesun.co.uk/wp-content/uploads/2016/04/2810515.main_image.jpg?strip=all"
+                  src="http://predds.info/g/bed/bedroom-luxury-bedroom-decor-ideas-with-excellent-gothic-bedroom.jpg"
                 />
               </div>
               <div>
@@ -113,7 +115,12 @@ class HomeShow extends React.Component {
             </div>
           </div>
           <div className="description">{description}</div>
-          <div className="contact-host">Contact host</div>
+          <div
+            className="contact-host"
+            onClick={() => this.props.showModal("construction")}
+          >
+            Contact host
+          </div>
         </div>
         <ReviewsList stars={stars} reviews={reviews} reviewers={reviewers} />
         <RentalRequestForm

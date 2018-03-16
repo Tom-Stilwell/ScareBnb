@@ -28,13 +28,13 @@
   background-color: white;
   border-radius: 50%;
   text-align: center;
-  vertical-align: center;
   box-shadow: 0px 0px 2px 1px rgba(230, 230, 230, 1);
   padding: 4px;
   margin: 10px;
   color: #999999;
   position: absolute;
-  left: 0px;
+  top: 10px;
+  left: 10px;
 }
 .close-x:hover {
   cursor: pointer;

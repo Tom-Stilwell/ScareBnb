@@ -41,10 +41,12 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.startLoading();
     this.props
       .createReview(this.state.home_id, this.state)
       .then(() => this.props.fetchCurrentUserInfo(this.props.currentUser.id))
-      .then(this.props.hideModal);
+      .then(this.props.hideModal)
+      .then(() => this.props.stopLoading());
   }
 
   render() {

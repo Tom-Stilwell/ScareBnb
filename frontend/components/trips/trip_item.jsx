@@ -1,30 +1,43 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-const TripItem = ({ rental, home, showReviewModal, past, history }) => {
+const TripItem = ({
+  rental,
+  home,
+  showReviewModal,
+  past,
+  history,
+  destroyRental,
+  fetchCurrentUserInfo,
+  currentUser
+}) => {
   const dateOptions = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"
   };
-  const checkIn = new Date(rental.start_date).toLocaleDateString(
-    "en-US",
-    dateOptions
-  );
+  let checkIn = new Date(rental.start_date);
+  checkIn.setDate(checkIn.getDate() + 1);
 
-  const checkOut = new Date(rental.end_date).toLocaleDateString(
-    "en-US",
-    dateOptions
-  );
+  checkIn = checkIn.toLocaleDateString("en-US", dateOptions);
+
+  let checkOut = new Date(rental.end_date);
+  checkOut.setDate(checkOut.getDate() + 1);
+
+  checkOut = checkOut.toLocaleDateString("en-US", dateOptions);
 
   const handleReviewClick = () => {
     history.push(`/trips?rental=${rental.id}&home=${home.id}`);
     showReviewModal();
   };
 
-  let review;
+  const handleCancel = () => {
+    destroyRental(rental.id).then(() => fetchCurrentUserInfo(currentUser.id));
+  };
 
+  let review;
+  let destroy;
   if (past) {
     if (rental.reviewed) {
       review = (
@@ -38,6 +51,12 @@ const TripItem = ({ rental, home, showReviewModal, past, history }) => {
         </div>
       );
     }
+  } else {
+    destroy = (
+      <div className="cancel-rental">
+        <span onClick={handleCancel}>Cancel Rental</span>
+      </div>
+    );
   }
 
   return (
@@ -55,6 +74,7 @@ const TripItem = ({ rental, home, showReviewModal, past, history }) => {
             Check{past ? "ed" : null} Out: <span>{checkOut}</span>
           </p>
           {review}
+          {destroy}
         </div>
       </div>
     </div>

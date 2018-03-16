@@ -1,6 +1,7 @@
 import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import ReactStars from "react-stars";
+import { withRouter } from "react-router-dom";
 
 class RentalRequestForm extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class RentalRequestForm extends React.Component {
     // debugger;
     const rentals = this.props.rentals;
     rentals.forEach(rental => {
+      // debugger;
       dates = dates.concat(
         this.getDates(
           new Date(rental.start_date.replace(/-/g, "/").replace(/T.+/, "")),
@@ -109,6 +111,7 @@ class RentalRequestForm extends React.Component {
               guests: 1,
               guestFocused: false
             });
+            this.props.history.push("/trips");
             this.props.showModal("reserve");
           }
         });
@@ -179,13 +182,15 @@ class RentalRequestForm extends React.Component {
             <span className="rental-form-price">${price}</span>
             <span> per night</span>
           </div>
-          <div className="rental-form-stars"><ReactStars
-            edit={false}
-            value={this.props.stars}
-            color1={"#999999"}
-            color2={"#239090"}
-            size={16}
-          /></div>
+          <div className="rental-form-stars">
+            <ReactStars
+              edit={false}
+              value={this.props.stars}
+              color1={"#999999"}
+              color2={"#239090"}
+              size={16}
+            />
+          </div>
         </div>
         <div className="rental-form-input-headers">
           <span>Dates</span>
@@ -246,4 +251,4 @@ class RentalRequestForm extends React.Component {
   }
 }
 
-export default RentalRequestForm;
+export default withRouter(RentalRequestForm);

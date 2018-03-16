@@ -51,11 +51,11 @@ class User < ApplicationRecord
   end
 
   def expired_rentals
-    self.rentals.where("end_date <= ?", Time.now)
+    self.rentals.where("end_date <= ?", Time.now).order("end_date DESC")
   end
 
   def upcoming_rentals
-    self.rentals.where("start_date >= ?", Time.now)
+    self.rentals.where("start_date >= ?", Time.now).order("start_date ASC")
   end
 
   def email=(email)

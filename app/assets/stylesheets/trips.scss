@@ -70,10 +70,13 @@
   font-size: 1vw;
 }
 
-.needs-review span {
+.needs-review span,
+.cancel-rental span {
   color: #009999;
+  font-size: 1vw;
 }
 
-.needs-review span:hover {
+.needs-review span:hover,
+.cancel-rental span:hover {
   cursor: pointer;
 }

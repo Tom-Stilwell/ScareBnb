@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :homes, only: [:index, :create, :show, :update, :destroy]
 
     post "/homes/:home_id/createRental", to: "homes#create_rental"
+    delete "/rentals/:rental_id", to: "homes#destroy_rental"
     post "/homes/:home_id/createReview", to: "homes#create_review"
     get "/users/:user_id/trips", to: "users#get_trips"
 

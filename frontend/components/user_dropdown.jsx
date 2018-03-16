@@ -1,17 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../actions/session_actions";
+import { showModal } from "../actions/modal_actions";
 
-const UserDropdown = props => {
+const UserDropdown = ({ logout, showModal }) => {
   return (
     <ul className="user-dropdown-list">
-      <li className="user-dropdown-button">Edit Profile</li>
-      <li className="user-dropdown-button">Travel Credit</li>
-      <li className="user-dropdown-button">Account Settings</li>
-      <li className="user-dropdown-button">My GuideBook</li>
-      <li className="user-dropdown-button">Gift Cards</li>
-      <li className="user-dropdown-button">Scarebnb for Work</li>
-      <li className="user-dropdown-button" onClick={props.logout}>
+      <li className="user-dropdown-button" onClick={showModal}>
+        Edit Profile
+      </li>
+      <li className="user-dropdown-button" onClick={showModal}>
+        Travel Credit
+      </li>
+      <li className="user-dropdown-button" onClick={showModal}>
+        Account Settings
+      </li>
+      <li className="user-dropdown-button" onClick={showModal}>
+        My GuideBook
+      </li>
+      <li className="user-dropdown-button" onClick={showModal}>
+        Gift Cards
+      </li>
+      <li className="user-dropdown-button" onClick={showModal}>
+        Scarebnb for Work
+      </li>
+      <li className="user-dropdown-button" onClick={logout}>
         Log Out
       </li>
     </ul>
@@ -19,7 +32,8 @@ const UserDropdown = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  showModal: () => dispatch(showModal("construction"))
 });
 
 export default connect(null, mapDispatchToProps)(UserDropdown);

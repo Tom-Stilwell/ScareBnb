@@ -36,6 +36,9 @@ const Modal = ({ modal, hideModal, currentUser }) => {
   return (
     <div className="modal-background" onClick={hideModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <div onClick={hideModal} className="close-x">
+          X
+        </div>
         {component}
       </div>
     </div>
