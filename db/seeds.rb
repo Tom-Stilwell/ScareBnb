@@ -23,6 +23,9 @@ u9 = User.create({email: "notawerewolf@iswear.com", password: "liarliar", birthd
 u10 = User.create({email: "whereIsShe@Imustfindher.com", password: "jenny!", birthday: "19/09/1999", fname: "Matthias", lname: "WhatHappenedToJenny"})
 u11 = User.create({email: "thawing@itswarm.com", password: "stickmeinthefreezer", birthday: "29/06/1929", fname: "Moreice", lname: "Corpse"})
 u12 = User.create({email: "iLoveGhosts@werewolves.com", password: "teeheexoxo", birthday: "17/07/1962", fname: "Becky", lname: "Smith"})
+u13 = User.create({email: "iHopeIMakeIt@doomed.com", password: "pleaseGOD", birthday: "17/07/1982", fname: "Patrick", lname: "Won't-Last-Long"})
+u14 = User.create({email: "calciumLover@mortuary.com", password: "givemebones", birthday: "13/07/1974", fname: "Mike", lname: "Bone-Collector"})
+u15 = User.create({email: "hurt@hospital.net", password: "bleeding", birthday: "25/03/1989", fname: "O.", lname: "Scar"})
 
 
 USERS= [u0,u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12]
