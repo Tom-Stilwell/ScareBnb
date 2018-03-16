@@ -70,27 +70,19 @@ Currently, the animations are styled for standard and webkit-based browsers.
   animation-iteration-count: infinite;
   animation-duration: 50s;
   animation-direction: normal;
-  -webkit-animation-name: cycle;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 60s;
-  -webkit-animation-direction: normal;
 }
 
 #main-splash img.first {
   z-index: 3;
   animation-delay: 0s;
-  -webkit-animation-delay: 0s;
 }
 #main-splash img.second {
   z-index: 2;
   animation-delay: 12.5s;
-  -webkit-animation-delay: 12.6s;
 }
 #main-splash img.third {
   z-index: 1;
   animation-delay: 25s;
-  -webkit-animation-delay: 25.2s;
 }
 
 #main-splash img.bottom {
@@ -115,13 +107,7 @@ in rental creation.
 ## home.rb
 
 def self.filter(filters)
-  splitSouth = filters[:bounds]["southWest"][1...-1].split(", ")
-  splitNorth = filters[:bounds]["northEast"][1...-1].split(", ")
-
-  minLat = splitSouth.first
-  minLng = splitSouth.last
-  maxLat = splitNorth.first
-  maxLng = splitNorth.last
+  # get minLat/maxLat from filter params
 
   homes = Home.where(lat: minLat..maxLat, lng: minLng..maxLng)
   .where('homes.occupancy >= ?', filters[:minGuests])

@@ -9,6 +9,7 @@
 User.destroy_all
 Home.destroy_all
 HomeRentalRequest.destroy_all
+Review.destroy_all
 
 u0 = User.create({email: "Tom@Tom.com", password: "starwars", birthday: "28/09/1994", fname: "Tom", lname: "Stilwell"})
 u1 = User.create({email: "TheBestGuest@ScareBnb.com", password: "hotstuff", birthday: "11/01/1991", fname: "Taylor", lname: "Made"})
