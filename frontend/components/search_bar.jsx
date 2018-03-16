@@ -45,13 +45,6 @@ class SearchBar extends React.Component {
     // }
     const geocoder = new google.maps.Geocoder();
     // let address;
-
-    // if (!this.autocomplete.getPlace().formatted_address) {
-    //   address = this.autocomplete.getPlace().name;
-    // } else {
-    //   address= this.autocomplete.getPlace().formatted_address;
-    // }
-
     geocoder.geocode({ address: address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
         const lat = results[0].geometry.location.lat();
@@ -59,6 +52,8 @@ class SearchBar extends React.Component {
         this.props.history.push(`/homes?lat=${lat}&lng=${lng}`);
       }
     });
+
+    this.setState({ search: "" });
   }
 
   render() {

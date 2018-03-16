@@ -40,6 +40,11 @@ h4 = Home.create({title: "Nothing To See Here", lat: 40.729943, lng: -73.981064,
 h5 = Home.create({title: "Witch Hangout", lat: 40.751264, lng: -73.983400, price: 20, occupancy: 8, beds: 6, baths: 1, host_id: u2.id, image_url: "https://photos.smugmug.com/Portfolio/i-9wVzbS8/0/44b1346a/X2/trey-ratcliff-long-scary-room-X2.jpg", description: DESCRIPTIONS.sample})
 h6 = Home.create({title: "Addams Family Mansion", lat: 40.741232, lng: -73.973934, price: 15, occupancy: 2, beds: 1, baths: 1, host_id: u3.id, image_url: "https://www.remotelands.com/remotenew1/dist/images/hotel/preferhotel/s160826001.jpg", description: DESCRIPTIONS.sample})
 h7 = Home.create({title: "Room 23", lat: 40.711222, lng: -73.983979, price: 60, occupancy: 4, beds: 4, baths: 1, host_id: u4.id, image_url: "https://i0.wp.com/danniebspeaks.com/wp-content/uploads/2016/10/Mooneys-mansion.jpg?resize=375%2C250", description: DESCRIPTIONS.sample})
+h8 = Home.create({title: "Transylvania Getaway", lat: 46.173971, lng: 25.233201, price: 60, occupancy: 4, beds: 4, baths: 1, host_id: u4.id, image_url: "https://www.remotelands.com/remotenew1/dist/images/hotel/preferhotel/s160826001.jpg", description: DESCRIPTIONS.sample})
+h9 = Home.create({title: "Zimbabwe gets creepy!", lat: -18.995532, lng: 29.146541, price: 120, occupancy: 7, beds: 5, baths: 2, host_id: u15.id, image_url: "http://www.lovethispic.com/uploaded_images/40535-Scary-Blue-Haunted-House.jpg", description: DESCRIPTIONS.sample})
+h10 = Home.create({title: "San Francisco Rules!", lat: 37.765081, lng: -122.461004, price: 350, occupancy: 2, beds: 1, baths: 1, host_id: u14.id, image_url: "http://i.dailymail.co.uk/i/pix/2014/01/24/article-2545200-1AEBCA2C00000578-936_964x641.jpg", description: "If you HAVE to leave New York for your scares, this place does the job."})
+
+
 
 ARTICLES = ["The", "One", "My", "Your", "Some", "Another"]
 ADJECTIVES = ["Spooky", "Thrilling", "Creepy", "Slimy", "Haunted", "Creaky", "Cavernous", "Oozing", "Shrieking", "Mysterious", "Suspicious", "Suspiciously Clean", "Deserted", "Abandoned", "Foggy", "Howling"]

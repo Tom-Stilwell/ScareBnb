@@ -5,7 +5,8 @@ const SplashButton = (props) => {
 
   const handleClick = (props) => () => {
     const geocoder = new google.maps.Geocoder();
-    const address = props.address;
+    let address = props.address;
+    address = address === "Transylvania" ? "Transylvania Romania" : address;
 
     geocoder.geocode({ address: address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
