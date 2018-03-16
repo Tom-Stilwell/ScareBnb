@@ -32,7 +32,7 @@
   left: 0;
 }
 
-@-webkit-keyframes cfFadeInOut {
+@-webkit-keyframes cycle {
   0% {
     opacity: 1;
   }
@@ -51,7 +51,7 @@
   }
 }
 
-@keyframes cfFadeInOut {
+@keyframes cycle {
   0% {
     opacity: 1;
   }
@@ -71,12 +71,12 @@
 }
 
 #main-splash img.splash-img {
-  animation-name: cfFadeInOut;
+  animation-name: cycle;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-duration: 50s;
   animation-direction: normal;
-  -webkit-animation-name: cfFadeInOut;
+  -webkit-animation-name: cycle;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 60s;
