@@ -73,6 +73,10 @@
   width: 375px;
 }
 
+.thumbnail-image:hover {
+  filter: invert(100%)
+}
+
 .thumbnail-image-backup {
   display: block;
   position: absolute;
