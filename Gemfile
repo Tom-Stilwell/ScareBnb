@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'pry-rails'
+# gem 'pry-rails'
 
 gem 'annotate'
 gem 'jquery-rails'
@@ -41,6 +41,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-rails'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 
 group :development do
