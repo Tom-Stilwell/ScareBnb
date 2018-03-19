@@ -1,11 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-const SplashButton = (props) => {
-
-  const handleClick = (props) => () => {
+const SplashButton = props => {
+  const handleClick = props => () => {
     const geocoder = new google.maps.Geocoder();
-    const address = props.address;
+    let address = props.address;
+    address = address === "Transylvania" ? "Transylvania Romania" : address;
 
     geocoder.geocode({ address: address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -23,7 +23,6 @@ const SplashButton = (props) => {
         <div className="splash-button-text"> See homes in {props.address}</div>
       </div>
     </div>
-
   );
 };
 
