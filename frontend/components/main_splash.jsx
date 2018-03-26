@@ -20,14 +20,45 @@ const splash = props => {
         <div className="splash-text">
           Book spooky homes and experiences all over the world.
         </div>
-        <div className="splash-search"><Root path={props.match.path} exact={props.match.isExact} component={SearchBar} /></div>
+        <div className="splash-search">
+          <Root
+            path={props.match.path}
+            exact={props.match.isExact}
+            component={SearchBar}
+          />
+        </div>
       </div>
       <div className="splash-buttons">
-        <SplashButton address={"Manhattan"} image={"https://hecktictravels.com/wp-content/uploads/2012/02/NYC-Nightlife-THUMBNAIL.jpg"} />
-        <SplashButton address={"San Francisco"} image={"https://m73x5fonqg-flywheel.netdna-ssl.com/wp-content/uploads/2016/12/thumbnail-san-francisco-2017-600x520.jpg"} />
-        <SplashButton address={"Brooklyn"} image={"https://cdn1.medicalnewstoday.com/content/images/articles/270/270202/cups-of-coffee.jpg"} />
-        <SplashButton address={"Zimbabwe"} image={"https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Zimbabwe-Harare-122239086-GeraldMashonga-copy.jpg"} />
-        <SplashButton address={"Transylvania"} image={"http://pixdaus.com/files/items/pics/6/75/195675_464d772e0f8368ee5a44bbcd618d21c5_large.jpg"} />
+        <SplashButton
+          address={"Manhattan"}
+          image={
+            "https://hecktictravels.com/wp-content/uploads/2012/02/NYC-Nightlife-THUMBNAIL.jpg"
+          }
+        />
+        <SplashButton
+          address={"San Francisco"}
+          image={
+            "https://m73x5fonqg-flywheel.netdna-ssl.com/wp-content/uploads/2016/12/thumbnail-san-francisco-2017-600x520.jpg"
+          }
+        />
+        <SplashButton
+          address={"Brooklyn"}
+          image={
+            "https://cdn1.medicalnewstoday.com/content/images/articles/270/270202/cups-of-coffee.jpg"
+          }
+        />
+        <SplashButton
+          address={"Zimbabwe"}
+          image={
+            "https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Zimbabwe-Harare-122239086-GeraldMashonga-copy.jpg"
+          }
+        />
+        <SplashButton
+          address={"Transylvania"}
+          image={
+            "https://pixdaus.com/files/items/pics/6/75/195675_464d772e0f8368ee5a44bbcd618d21c5_large.jpg"
+          }
+        />
       </div>
     </div>
   );
