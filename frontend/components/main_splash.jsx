@@ -56,7 +56,7 @@ const splash = props => {
         <SplashButton
           address={"Transylvania"}
           image={
-            "https://pixdaus.com/files/items/pics/6/75/195675_464d772e0f8368ee5a44bbcd618d21c5_large.jpg"
+            "https://www.dailydot.com/wp-content/uploads/0ab/2f/MBSrwJM.jpg"
           }
         />
       </div>
