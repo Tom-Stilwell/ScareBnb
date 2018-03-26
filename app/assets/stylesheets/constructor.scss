@@ -8,7 +8,8 @@
 }
 
 .constructor-image {
-  filter: opacity(0.5) drop-shadow(0 0 0 red) brightness(3);
+  filter: brightness(3);
+  -webkit-filter: brightness(3);
   height: 10%;
   width: 20%;
   animation: line 3s linear infinite;
