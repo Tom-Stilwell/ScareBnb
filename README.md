@@ -1,15 +1,13 @@
 # ScareBnb
+
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/)
 
-
-
 <img src="https://github.com/Tom-Stilwell/ScareBnb/blob/master/app/assets/images/ghost.png" alt="spooky" align="center" width="100px" height="100px"/>
 
-[Live Site](https://scarebnb123.herokuapp.com/#/)
-
+[Live Site](http://scarebnb123.herokuapp.com/#/)
 
 ## Overview
 
@@ -18,7 +16,6 @@ homes of a spooky nature. Modeled after a certain other home-sharing app (...cou
 ScareBnb allows users to search for homes via location and filter based on price,
 occupancy, and proposed dates of stay. Users can then request a reservation, view their upcoming and past trips,
 and leave reviews of homes they've visited.
-
 
 ## Technologies
 
@@ -42,7 +39,7 @@ This animation is delayed for each image to give the appearance of cycling.
 Additionally, the main text's animation is done through simple keyframe animation.
 Currently, the animations are styled for standard and webkit-based browsers.
 
-``` CSS
+```CSS
 /* app/assets/stylesheets/splash.scss */
 
 @keyframes cycle {
@@ -88,9 +85,7 @@ Currently, the animations are styled for standard and webkit-based browsers.
 #main-splash img.bottom {
   z-index: -5;
 }
-
 ```
-
 
 ### Home Search Filtering
 
@@ -103,7 +98,7 @@ concept. Rails instantiates a rental for the desired dates and filters out any h
 conflicting approved rental requests. This allows for DRY use of the same code implemented
 in rental creation.
 
-``` ruby
+```ruby
 ## home.rb
 
 def self.filter(filters)
@@ -129,10 +124,10 @@ def self.filter(filters)
 end
 ```
 
-
 ## The Future
 
 ScareBnb has the foundations for:
+
 * experience booking (haunted hayrides, perilous parties, creepy clubbing, etc.)
 * host profiles and ability to approve/deny rental requests
 * wishlist creation via favoriting
