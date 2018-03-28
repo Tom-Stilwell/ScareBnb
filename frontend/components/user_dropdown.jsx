@@ -9,21 +9,7 @@ const UserDropdown = ({ logout, showModal }) => {
       <li className="user-dropdown-button" onClick={showModal}>
         Edit Profile
       </li>
-      <li className="user-dropdown-button" onClick={showModal}>
-        Travel Credit
-      </li>
-      <li className="user-dropdown-button" onClick={showModal}>
-        Account Settings
-      </li>
-      <li className="user-dropdown-button" onClick={showModal}>
-        My GuideBook
-      </li>
-      <li className="user-dropdown-button" onClick={showModal}>
-        Gift Cards
-      </li>
-      <li className="user-dropdown-button" onClick={showModal}>
-        Scarebnb for Work
-      </li>
+
       <li className="user-dropdown-button" onClick={logout}>
         Log Out
       </li>
