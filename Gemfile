@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 # gem 'pry-rails'
-
+gem 'aws-sdk', '<3.0'
+gem 'paperclip', '~> 5.0.0'
+gem 'figaro'
 gem 'annotate'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

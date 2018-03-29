@@ -1,6 +1,9 @@
 class Home < ApplicationRecord
   validates :title, :lat, :lng, :price, :occupancy, :beds, presence: true
 
+  has_attached_file :image, default_url: "ghost.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   belongs_to :host,
     class_name: "User",
     foreign_key: :host_id,

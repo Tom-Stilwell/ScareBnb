@@ -27,3 +27,6 @@ bundle.js.map
 npm-debug.log
 
 junk/
+
+# Ignore application configuration
+/config/application.yml

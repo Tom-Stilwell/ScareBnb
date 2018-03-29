@@ -1,6 +1,7 @@
 
 json.home do
-  json.merge! home.attributes
+  json.merge! home.attributes.except(:image_url)
+  json.image_url asset_path(home.image.url)
   json.stars Home.get_review_averages(home.id)
   json.rental_ids home.rentals.pluck(:id)
   json.review_ids home.reviews.order("created_at DESC").pluck(:id)
