@@ -14,7 +14,7 @@ const Construction = ({ hideModal }) => (
       <p>
         Please do send suggestions/feedback to Tom at ThomasRStilwell@gmail.com{" "}
         <br />
-        Or visit my <a href="https://tomstilwell.me">website</a>!
+        Or visit my <a href="http://tomstilwell.me">website</a>!
       </p>
       <p>
         Now, go{" "}
