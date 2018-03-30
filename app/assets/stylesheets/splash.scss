@@ -107,7 +107,8 @@
   position: absolute;
   top: 40vh;
   margin-top: 30px;
-  left: 450px;
+  left: 20vw;
+  margin-left: 50px;
   height: 200px;
   width: 640px;
   z-index: 50;
@@ -159,7 +160,8 @@
 
 .splash-search {
   position: absolute;
-  left: 340px;
+  left: 20vw;
+  margin-left: 50px;
   top: 40vh;
   margin-top: 140px;
   z-index: 100;
@@ -167,6 +169,7 @@
 
 .splash-search div.search-bar {
   width: 800px;
+  margin-left: 0;
 }
 
 .splash-search input.search-bar-input {
