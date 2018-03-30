@@ -24,7 +24,9 @@
   width: 200px;
   height: 200px;
   animation: spin 0.5s linear infinite;
+  animation-delay: 0.2s;
   -webkit-animation: spin 0.5s linear infinite;
+  -webkit-animation-delay: 0.2s;
 }
 
 @keyframes spin {
