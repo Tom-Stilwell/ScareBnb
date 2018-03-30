@@ -16,7 +16,8 @@ end
 json.homes do
   @user.rented_homes.each do |home|
     json.set! home.id do
-      json.extract! home, :id, :title, :image_url
+      json.extract! home, :id, :title
+      json.image_url asset_path(home.image.url)
     end
   end
 end

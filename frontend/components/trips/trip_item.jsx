@@ -59,6 +59,8 @@ const TripItem = ({
     );
   }
 
+  // debugger;
+
   return (
     <div className="trip-item">
       <div className="trip-item-content">
