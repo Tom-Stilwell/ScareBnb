@@ -6,10 +6,6 @@ import { showModal } from "../actions/modal_actions";
 const UserDropdown = ({ logout, showModal }) => {
   return (
     <ul className="user-dropdown-list">
-      <li className="user-dropdown-button" onClick={showModal}>
-        Edit Profile
-      </li>
-
       <li className="user-dropdown-button" onClick={logout}>
         Log Out
       </li>

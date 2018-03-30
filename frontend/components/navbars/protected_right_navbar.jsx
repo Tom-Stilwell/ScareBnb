@@ -29,15 +29,6 @@ class ProtectedRightNavBar extends React.Component {
                 Trips
               </button>
             </div>
-            <div className="messages-div">
-              <button
-                type="button"
-                onClick={() => this.props.showModal("construction")}
-                className="session-button"
-              >
-                Messages
-              </button>
-            </div>
             <div className="help-div">
               <button
                 type="button"

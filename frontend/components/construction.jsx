@@ -12,7 +12,9 @@ const Construction = ({ hideModal }) => (
       <h1>Thanks for clicking that button!</h1>
       <p>This part of the site is currently under construction.</p>
       <p>
-        Please do send suggestions/feedback to Tom at ThomasRStilwell@gmail.com
+        Please do send suggestions/feedback to Tom at ThomasRStilwell@gmail.com{" "}
+        <br />
+        Or visit my <a href="https://tomstilwell.me">website</a>!
       </p>
       <p>
         Now, go{" "}
