@@ -3,7 +3,7 @@ import HomeMap from "../map/home_map";
 import HomeIndex from "./home_index";
 import FilterBar from "../filters/filter_bar_container";
 import Loader from "../loader";
-import If from '../../util/If';
+import If from "../../util/If";
 
 class HomeSearch extends React.Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class HomeSearch extends React.Component {
   updateBounds(bounds) {
     this.props.startLoading();
 
-    this.props.updateFilter("bounds", bounds)
+    this.props
+      .updateFilter("bounds", bounds)
       .then(() => this.props.stopLoading());
   }
 
@@ -32,7 +33,13 @@ class HomeSearch extends React.Component {
           then={<Loader />}
           else={<HomeIndex homes={homes} />}
         />
-        <HomeMap className="map" homes={homes} updateBounds={this.updateBounds} startLoading={startLoading} stopLoading={stopLoading} />
+        <HomeMap
+          className="map"
+          homes={homes}
+          updateBounds={this.updateBounds}
+          startLoading={startLoading}
+          stopLoading={stopLoading}
+        />
       </div>
     );
   }

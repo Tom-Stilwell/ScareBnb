@@ -2,7 +2,7 @@ import { merge } from "lodash";
 import { RECEIVE_LOADING, RECEIVE_LOADED } from "../actions/loading_actions";
 
 const defaultState = {
-  homeShow: false,
+  homeShow: true,
   homeSearch: true,
   trips: false
 };
