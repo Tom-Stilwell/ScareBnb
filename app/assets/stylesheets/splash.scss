@@ -190,7 +190,7 @@
 
 .splash-search input.search-bar-input {
   // margin-left: 20px;
-  width: auto;
+  width: calc(100% - 70px);
   position: absolute;
   left: 60px;
   top: 10px;
