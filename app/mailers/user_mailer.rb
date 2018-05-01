@@ -4,6 +4,7 @@ class UserMailer < ApplicationMailer
   def trip_confirmation(user, rental, home)
     @user = user
     @trip = rental
+    @home = home
     mail(to: @user.email, subject: "Your Upcoming Trip to '#{home.title}'")
   end
 end

@@ -41,16 +41,17 @@ class RentalRequestForm extends React.Component {
 
   disabledDays() {
     let dates = [];
-    // debugger;
+
     const rentals = this.props.rentals;
     rentals.forEach(rental => {
-      // debugger;
-      dates = dates.concat(
-        this.getDates(
-          new Date(rental.start_date.replace(/-/g, "/").replace(/T.+/, "")),
-          new Date(rental.end_date.replace(/-/g, "/").replace(/T.+/, ""))
-        )
-      );
+      if (rental) {
+        dates = dates.concat(
+          this.getDates(
+            new Date(rental.start_date.replace(/-/g, "/").replace(/T.+/, "")),
+            new Date(rental.end_date.replace(/-/g, "/").replace(/T.+/, ""))
+          )
+        );
+      }
     });
     return dates;
   }
