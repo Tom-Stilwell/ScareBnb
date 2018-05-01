@@ -70,6 +70,8 @@ class Api::HomesController < ApplicationController
       @rental = HomeRentalRequest.new(permitted)
 
       if @rental.save
+        confirmation_email = UserMailer.trip_confirmation(current_user, @rental, Home.find(@rental.home_id))
+        confirmation_email.deliver_now
         render json: {id: @rental.id, home_id: @rental.home_id, start_date: @rental.start_date, end_date: @rental.end_date}, status: 200
       else
         render json: {errors: @rental.errors.full_messages}, status: 422
