@@ -1,1 +1,6 @@
-Yay you have a trip coming up <%= @user.fname %>
+Trip Details For <%= @user.fname %>
+  <%= link_to @home.title, "www.scarebnb.xyz/#/homes/#{@home.id}", :style => "text-decoration: none; color: black" %>
+  <%= link_to image_tag("#{@home.image_url}", :style => "height: 300px; width: 400px"), "www.scarebnb.xyz/#/homes/#{@home.id}" %>
+
+  Check-in Date: <%= @trip.start_date %>
+  Check-out Date: <%= @trip.end_date %>
